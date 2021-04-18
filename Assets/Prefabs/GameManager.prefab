@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1088739168460740955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1088739168460740953}
+  - component: {fileID: 1088739168460740952}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1088739168460740953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088739168460740955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 111.2, y: 0, z: 89.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088739168460740952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088739168460740955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc4cf9d37b39b8408f8b21609636d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Humans: []
+  DeadZombies: []
+  Zombies: []
+  StageNumber: 3
+  RightBorderStage1: {fileID: 0}
+  LeftBorderStage1: {fileID: 0}
+  UpBorderStage1: {fileID: 0}
+  DownBorderStage1: {fileID: 0}
+  RightBorderStage2: {fileID: 0}
+  LeftBorderStage2: {fileID: 0}
+  UpBorderStage2: {fileID: 0}
+  DownBorderStage2: {fileID: 0}
+  RightBorderStage3: {fileID: 0}
+  LeftBorderStage3: {fileID: 0}
+  UpBorderStage3: {fileID: 0}
+  DownBorderStage3: {fileID: 0}
+  gamePropertiesModifyier: {fileID: 0}
+  CameraStage1Pos: {x: 0, y: 15, z: 64}
+  CameraStage2Pos: {x: 0, y: 25, z: 55}
+  CameraStage3Pos: {x: 0, y: 35, z: 46}
+  NavMeshSurface: {fileID: 0}
+  CameraSmoothSpeed: 3
+  MaxStagesNumInLevel: 3
+  MainCanves: {fileID: 0}
+  SecondstoStartNextStage: 2
+  Levels: []

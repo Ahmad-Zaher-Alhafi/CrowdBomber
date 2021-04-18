@@ -1,0 +1,2815 @@
+fileFormatVersion: 2
+guid: d83e07c47cb17454bbddbc5dd7574150
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: banker_suit
+  - first:
+      1: 100002
+    second: beard
+  - first:
+      1: 100004
+    second: beard_a
+  - first:
+      1: 100006
+    second: beard_b
+  - first:
+      1: 100008
+    second: beard_c
+  - first:
+      1: 100010
+    second: beard_d
+  - first:
+      1: 100012
+    second: Bone
+  - first:
+      1: 100014
+    second: Bone.002
+  - first:
+      1: 100016
+    second: Bone.004
+  - first:
+      1: 100018
+    second: Bone.005
+  - first:
+      1: 100020
+    second: Bone.006
+  - first:
+      1: 100022
+    second: Bone.006_end
+  - first:
+      1: 100024
+    second: Bone.007
+  - first:
+      1: 100026
+    second: Bone.008
+  - first:
+      1: 100028
+    second: Bone.009
+  - first:
+      1: 100030
+    second: Bone.010
+  - first:
+      1: 100032
+    second: Bone.011
+  - first:
+      1: 100034
+    second: Bone.012
+  - first:
+      1: 100036
+    second: Bone.013
+  - first:
+      1: 100038
+    second: Bone.014
+  - first:
+      1: 100040
+    second: Bone.015
+  - first:
+      1: 100042
+    second: Bone.016
+  - first:
+      1: 100044
+    second: Bone.017
+  - first:
+      1: 100046
+    second: Bone.017_end
+  - first:
+      1: 100048
+    second: Bone.018
+  - first:
+      1: 100050
+    second: Bone.019
+  - first:
+      1: 100052
+    second: Bone.019_end
+  - first:
+      1: 100054
+    second: Bone.021
+  - first:
+      1: 100056
+    second: Bone.021_end
+  - first:
+      1: 100058
+    second: Bone.022
+  - first:
+      1: 100060
+    second: Bone.022_end
+  - first:
+      1: 100062
+    second: Bone.023
+  - first:
+      1: 100064
+    second: Bone.023_end
+  - first:
+      1: 100066
+    second: Bone.024
+  - first:
+      1: 100068
+    second: Bone.024_end
+  - first:
+      1: 100070
+    second: Bone.025
+  - first:
+      1: 100072
+    second: Bone.025_end
+  - first:
+      1: 100074
+    second: Bone.026
+  - first:
+      1: 100076
+    second: Bone.026_end
+  - first:
+      1: 100078
+    second: bullet
+  - first:
+      1: 100080
+    second: Camera
+  - first:
+      1: 100082
+    second: cap
+  - first:
+      1: 100084
+    second: cap2
+  - first:
+      1: 100086
+    second: cap3
+  - first:
+      1: 100088
+    second: chain1
+  - first:
+      1: 100090
+    second: chain2
+  - first:
+      1: 100092
+    second: chain3
+  - first:
+      1: 100094
+    second: cigarette
+  - first:
+      1: 100096
+    second: cloth
+  - first:
+      1: 100098
+    second: complet_suits
+  - first:
+      1: 100100
+    second: cook_suit
+  - first:
+      1: 100102
+    second: crowbar
+  - first:
+      1: 100104
+    second: //RootNode
+  - first:
+      1: 100106
+    second: farmer_suit
+  - first:
+      1: 100108
+    second: fireaxe
+  - first:
+      1: 100110
+    second: fireman_suit
+  - first:
+      1: 100112
+    second: FPS_bone
+  - first:
+      1: 100114
+    second: glasses
+  - first:
+      1: 100116
+    second: glock
+  - first:
+      1: 100118
+    second: hair
+  - first:
+      1: 100120
+    second: hair_a
+  - first:
+      1: 100122
+    second: hair_b
+  - first:
+      1: 100124
+    second: hair_c
+  - first:
+      1: 100126
+    second: hair_d
+  - first:
+      1: 100128
+    second: hair_e
+  - first:
+      1: 100130
+    second: hat
+  - first:
+      1: 100132
+    second: hat.001
+  - first:
+      1: 100134
+    second: hat.002
+  - first:
+      1: 100136
+    second: hat.003
+  - first:
+      1: 100138
+    second: hat.004
+  - first:
+      1: 100140
+    second: hat.005
+  - first:
+      1: 100142
+    second: hat.006
+  - first:
+      1: 100144
+    second: hat.007
+  - first:
+      1: 100146
+    second: human_head_mesh
+  - first:
+      1: 100148
+    second: human_mesh
+  - first:
+      1: 100150
+    second: jacket
+  - first:
+      1: 100152
+    second: mechanic
+  - first:
+      1: 100154
+    second: nurse_suit
+  - first:
+      1: 100156
+    second: phone
+  - first:
+      1: 100158
+    second: police_suit
+  - first:
+      1: 100160
+    second: props
+  - first:
+      1: 100162
+    second: pullover
+  - first:
+      1: 100164
+    second: roober_suit
+  - first:
+      1: 100166
+    second: scarf
+  - first:
+      1: 100168
+    second: security_guard_suit
+  - first:
+      1: 100170
+    second: seller_suit
+  - first:
+      1: 100172
+    second: shirt
+  - first:
+      1: 100174
+    second: shoes1
+  - first:
+      1: 100176
+    second: shoes2
+  - first:
+      1: 100178
+    second: shoes3
+  - first:
+      1: 100180
+    second: shortpants
+  - first:
+      1: 100182
+    second: simple_custom_human
+  - first:
+      1: 100184
+    second: t_shirt
+  - first:
+      1: 100186
+    second: tank_top
+  - first:
+      1: 100188
+    second: trousers
+  - first:
+      1: 100190
+    second: worker
+  - first:
+      1: 100192
+    second: human_stomach
+  - first:
+      4: 400000
+    second: banker_suit
+  - first:
+      4: 400002
+    second: beard
+  - first:
+      4: 400004
+    second: beard_a
+  - first:
+      4: 400006
+    second: beard_b
+  - first:
+      4: 400008
+    second: beard_c
+  - first:
+      4: 400010
+    second: beard_d
+  - first:
+      4: 400012
+    second: Bone
+  - first:
+      4: 400014
+    second: Bone.002
+  - first:
+      4: 400016
+    second: Bone.004
+  - first:
+      4: 400018
+    second: Bone.005
+  - first:
+      4: 400020
+    second: Bone.006
+  - first:
+      4: 400022
+    second: Bone.006_end
+  - first:
+      4: 400024
+    second: Bone.007
+  - first:
+      4: 400026
+    second: Bone.008
+  - first:
+      4: 400028
+    second: Bone.009
+  - first:
+      4: 400030
+    second: Bone.010
+  - first:
+      4: 400032
+    second: Bone.011
+  - first:
+      4: 400034
+    second: Bone.012
+  - first:
+      4: 400036
+    second: Bone.013
+  - first:
+      4: 400038
+    second: Bone.014
+  - first:
+      4: 400040
+    second: Bone.015
+  - first:
+      4: 400042
+    second: Bone.016
+  - first:
+      4: 400044
+    second: Bone.017
+  - first:
+      4: 400046
+    second: Bone.017_end
+  - first:
+      4: 400048
+    second: Bone.018
+  - first:
+      4: 400050
+    second: Bone.019
+  - first:
+      4: 400052
+    second: Bone.019_end
+  - first:
+      4: 400054
+    second: Bone.021
+  - first:
+      4: 400056
+    second: Bone.021_end
+  - first:
+      4: 400058
+    second: Bone.022
+  - first:
+      4: 400060
+    second: Bone.022_end
+  - first:
+      4: 400062
+    second: Bone.023
+  - first:
+      4: 400064
+    second: Bone.023_end
+  - first:
+      4: 400066
+    second: Bone.024
+  - first:
+      4: 400068
+    second: Bone.024_end
+  - first:
+      4: 400070
+    second: Bone.025
+  - first:
+      4: 400072
+    second: Bone.025_end
+  - first:
+      4: 400074
+    second: Bone.026
+  - first:
+      4: 400076
+    second: Bone.026_end
+  - first:
+      4: 400078
+    second: bullet
+  - first:
+      4: 400080
+    second: Camera
+  - first:
+      4: 400082
+    second: cap
+  - first:
+      4: 400084
+    second: cap2
+  - first:
+      4: 400086
+    second: cap3
+  - first:
+      4: 400088
+    second: chain1
+  - first:
+      4: 400090
+    second: chain2
+  - first:
+      4: 400092
+    second: chain3
+  - first:
+      4: 400094
+    second: cigarette
+  - first:
+      4: 400096
+    second: cloth
+  - first:
+      4: 400098
+    second: complet_suits
+  - first:
+      4: 400100
+    second: cook_suit
+  - first:
+      4: 400102
+    second: crowbar
+  - first:
+      4: 400104
+    second: //RootNode
+  - first:
+      4: 400106
+    second: farmer_suit
+  - first:
+      4: 400108
+    second: fireaxe
+  - first:
+      4: 400110
+    second: fireman_suit
+  - first:
+      4: 400112
+    second: FPS_bone
+  - first:
+      4: 400114
+    second: glasses
+  - first:
+      4: 400116
+    second: glock
+  - first:
+      4: 400118
+    second: hair
+  - first:
+      4: 400120
+    second: hair_a
+  - first:
+      4: 400122
+    second: hair_b
+  - first:
+      4: 400124
+    second: hair_c
+  - first:
+      4: 400126
+    second: hair_d
+  - first:
+      4: 400128
+    second: hair_e
+  - first:
+      4: 400130
+    second: hat
+  - first:
+      4: 400132
+    second: hat.001
+  - first:
+      4: 400134
+    second: hat.002
+  - first:
+      4: 400136
+    second: hat.003
+  - first:
+      4: 400138
+    second: hat.004
+  - first:
+      4: 400140
+    second: hat.005
+  - first:
+      4: 400142
+    second: hat.006
+  - first:
+      4: 400144
+    second: hat.007
+  - first:
+      4: 400146
+    second: human_head_mesh
+  - first:
+      4: 400148
+    second: human_mesh
+  - first:
+      4: 400150
+    second: jacket
+  - first:
+      4: 400152
+    second: mechanic
+  - first:
+      4: 400154
+    second: nurse_suit
+  - first:
+      4: 400156
+    second: phone
+  - first:
+      4: 400158
+    second: police_suit
+  - first:
+      4: 400160
+    second: props
+  - first:
+      4: 400162
+    second: pullover
+  - first:
+      4: 400164
+    second: roober_suit
+  - first:
+      4: 400166
+    second: scarf
+  - first:
+      4: 400168
+    second: security_guard_suit
+  - first:
+      4: 400170
+    second: seller_suit
+  - first:
+      4: 400172
+    second: shirt
+  - first:
+      4: 400174
+    second: shoes1
+  - first:
+      4: 400176
+    second: shoes2
+  - first:
+      4: 400178
+    second: shoes3
+  - first:
+      4: 400180
+    second: shortpants
+  - first:
+      4: 400182
+    second: simple_custom_human
+  - first:
+      4: 400184
+    second: t_shirt
+  - first:
+      4: 400186
+    second: tank_top
+  - first:
+      4: 400188
+    second: trousers
+  - first:
+      4: 400190
+    second: worker
+  - first:
+      4: 400192
+    second: human_stomach
+  - first:
+      20: 2000000
+    second: Camera
+  - first:
+      21: 2100000
+    second: Material.001
+  - first:
+      21: 2100002
+    second: Material.032
+  - first:
+      21: 2100004
+    second: Material.036
+  - first:
+      21: 2100006
+    second: Material.035
+  - first:
+      21: 2100008
+    second: Material.034
+  - first:
+      21: 2100010
+    second: Material.033
+  - first:
+      21: 2100012
+    second: Material.030
+  - first:
+      21: 2100014
+    second: Material.031
+  - first:
+      21: 2100016
+    second: Material.029
+  - first:
+      21: 2100018
+    second: Material.028
+  - first:
+      21: 2100020
+    second: Material.027
+  - first:
+      21: 2100022
+    second: Material.026
+  - first:
+      21: 2100024
+    second: Material.014
+  - first:
+      21: 2100026
+    second: Material.020
+  - first:
+      21: 2100028
+    second: Material.022
+  - first:
+      21: 2100030
+    second: Material.023
+  - first:
+      21: 2100032
+    second: Material.018
+  - first:
+      21: 2100034
+    second: Material.025
+  - first:
+      21: 2100036
+    second: Material.024
+  - first:
+      21: 2100038
+    second: Material.019
+  - first:
+      21: 2100040
+    second: Material.021
+  - first:
+      21: 2100042
+    second: Material.007
+  - first:
+      21: 2100044
+    second: Material.009
+  - first:
+      21: 2100046
+    second: Material
+  - first:
+      21: 2100048
+    second: Material.008
+  - first:
+      21: 2100050
+    second: Material.003
+  - first:
+      21: 2100052
+    second: Material.006
+  - first:
+      21: 2100054
+    second: Material.005
+  - first:
+      21: 2100056
+    second: Material.004
+  - first:
+      21: 2100058
+    second: Material.017
+  - first:
+      21: 2100060
+    second: Material.002
+  - first:
+      21: 2100062
+    second: Material.011
+  - first:
+      21: 2100064
+    second: Material.012
+  - first:
+      21: 2100066
+    second: Material.016
+  - first:
+      21: 2100068
+    second: Material.015
+  - first:
+      21: 2100070
+    second: No Name
+  - first:
+      21: 2100072
+    second: Material.013
+  - first:
+      21: 2100074
+    second: Material.010
+  - first:
+      23: 2300000
+    second: beard
+  - first:
+      23: 2300002
+    second: cloth
+  - first:
+      23: 2300004
+    second: complet_suits
+  - first:
+      23: 2300006
+    second: hair
+  - first:
+      23: 2300008
+    second: props
+  - first:
+      33: 3300000
+    second: beard
+  - first:
+      33: 3300002
+    second: cloth
+  - first:
+      33: 3300004
+    second: complet_suits
+  - first:
+      33: 3300006
+    second: hair
+  - first:
+      33: 3300008
+    second: props
+  - first:
+      43: 4300000
+    second: human_mesh
+  - first:
+      43: 4300002
+    second: beard
+  - first:
+      43: 4300004
+    second: beard_d
+  - first:
+      43: 4300006
+    second: beard_c
+  - first:
+      43: 4300008
+    second: beard_b
+  - first:
+      43: 4300010
+    second: beard_a
+  - first:
+      43: 4300012
+    second: props
+  - first:
+      43: 4300014
+    second: phone
+  - first:
+      43: 4300016
+    second: fireaxe
+  - first:
+      43: 4300018
+    second: glock
+  - first:
+      43: 4300020
+    second: bullet
+  - first:
+      43: 4300022
+    second: crowbar
+  - first:
+      43: 4300024
+    second: cigarette
+  - first:
+      43: 4300026
+    second: hair
+  - first:
+      43: 4300028
+    second: hair_e
+  - first:
+      43: 4300030
+    second: hair_d
+  - first:
+      43: 4300032
+    second: hair_c
+  - first:
+      43: 4300034
+    second: hair_b
+  - first:
+      43: 4300036
+    second: hair_a
+  - first:
+      43: 4300038
+    second: cloth
+  - first:
+      43: 4300040
+    second: complet_suits
+  - first:
+      43: 4300042
+    second: worker
+  - first:
+      43: 4300044
+    second: hat
+  - first:
+      43: 4300046
+    second: seller_suit
+  - first:
+      43: 4300048
+    second: security_guard_suit
+  - first:
+      43: 4300050
+    second: hat.006
+  - first:
+      43: 4300052
+    second: roober_suit
+  - first:
+      43: 4300054
+    second: hat.005
+  - first:
+      43: 4300056
+    second: police_suit
+  - first:
+      43: 4300058
+    second: hat.007
+  - first:
+      43: 4300060
+    second: nurse_suit
+  - first:
+      43: 4300062
+    second: mechanic
+  - first:
+      43: 4300064
+    second: hat.004
+  - first:
+      43: 4300066
+    second: fireman_suit
+  - first:
+      43: 4300068
+    second: hat.002
+  - first:
+      43: 4300070
+    second: farmer_suit
+  - first:
+      43: 4300072
+    second: hat.001
+  - first:
+      43: 4300074
+    second: cook_suit
+  - first:
+      43: 4300076
+    second: hat.003
+  - first:
+      43: 4300078
+    second: banker_suit
+  - first:
+      43: 4300080
+    second: trousers
+  - first:
+      43: 4300082
+    second: tank_top
+  - first:
+      43: 4300084
+    second: t_shirt
+  - first:
+      43: 4300086
+    second: shortpants
+  - first:
+      43: 4300088
+    second: shoes3
+  - first:
+      43: 4300090
+    second: shoes2
+  - first:
+      43: 4300092
+    second: shoes1
+  - first:
+      43: 4300094
+    second: shirt
+  - first:
+      43: 4300096
+    second: scarf
+  - first:
+      43: 4300098
+    second: pullover
+  - first:
+      43: 4300100
+    second: jacket
+  - first:
+      43: 4300102
+    second: glasses
+  - first:
+      43: 4300104
+    second: chain3
+  - first:
+      43: 4300106
+    second: chain2
+  - first:
+      43: 4300108
+    second: chain1
+  - first:
+      43: 4300110
+    second: cap3
+  - first:
+      43: 4300112
+    second: cap2
+  - first:
+      43: 4300114
+    second: cap
+  - first:
+      43: 4300116
+    second: human_head_mesh
+  - first:
+      43: 4300118
+    second: human_stomach
+  - first:
+      74: 7400000
+    second: simple_custom_human|crowbar_hit
+  - first:
+      74: 7400002
+    second: simple_custom_human|crowbar_idle
+  - first:
+      74: 7400004
+    second: simple_custom_human|crowbar_work
+  - first:
+      74: 7400006
+    second: simple_custom_human|drinking
+  - first:
+      74: 7400008
+    second: simple_custom_human|eating
+  - first:
+      74: 7400010
+    second: simple_custom_human|fireaxe_hit
+  - first:
+      74: 7400012
+    second: simple_custom_human|fireaxe_idle
+  - first:
+      74: 7400014
+    second: simple_custom_human|glock_aim
+  - first:
+      74: 7400016
+    second: simple_custom_human|glock_aim_shoot
+  - first:
+      74: 7400018
+    second: simple_custom_human|glock_idle
+  - first:
+      74: 7400020
+    second: simple_custom_human|glock_idle_shoot
+  - first:
+      74: 7400022
+    second: simple_custom_human|glock_reload
+  - first:
+      74: 7400024
+    second: simple_custom_human|goto_crowbar_work
+  - first:
+      74: 7400026
+    second: simple_custom_human|goto_ducking_afraid
+  - first:
+      74: 7400028
+    second: simple_custom_human|goto_hanging_up_wall
+  - first:
+      74: 7400030
+    second: simple_custom_human|goto_phone_call
+  - first:
+      74: 7400032
+    second: simple_custom_human|hands_up_move
+  - first:
+      74: 7400034
+    second: simple_custom_human|hanging_up_wall
+  - first:
+      74: 7400036
+    second: simple_custom_human|heads_up_stay
+  - first:
+      74: 7400038
+    second: simple_custom_human|hello
+  - first:
+      74: 7400040
+    second: simple_custom_human|hit_left
+  - first:
+      74: 7400042
+    second: simple_custom_human|hit_ready_idle
+  - first:
+      74: 7400044
+    second: simple_custom_human|hit_right
+  - first:
+      74: 7400046
+    second: simple_custom_human|idle
+  - first:
+      74: 7400048
+    second: simple_custom_human|look_around_1
+  - first:
+      74: 7400050
+    second: simple_custom_human|look_around_2
+  - first:
+      74: 7400052
+    second: simple_custom_human|look_around_3
+  - first:
+      74: 7400054
+    second: simple_custom_human|look_around_4
+  - first:
+      74: 7400056
+    second: simple_custom_human|phone_call
+  - first:
+      74: 7400058
+    second: simple_custom_human|run
+  - first:
+      74: 7400060
+    second: simple_custom_human|sit_down
+  - first:
+      74: 7400062
+    second: simple_custom_human|sitting
+  - first:
+      74: 7400064
+    second: simple_custom_human|smoking
+  - first:
+      74: 7400066
+    second: simple_custom_human|walk
+  - first:
+      74: 7400068
+    second: simple_custom_human|walk_ducking
+  - first:
+      74: 7400070
+    second: simple_custom_human|pick_up
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: banker_suit
+  - first:
+      137: 13700002
+    second: beard_a
+  - first:
+      137: 13700004
+    second: beard_b
+  - first:
+      137: 13700006
+    second: beard_c
+  - first:
+      137: 13700008
+    second: beard_d
+  - first:
+      137: 13700010
+    second: bullet
+  - first:
+      137: 13700012
+    second: cap
+  - first:
+      137: 13700014
+    second: cap2
+  - first:
+      137: 13700016
+    second: cap3
+  - first:
+      137: 13700018
+    second: chain1
+  - first:
+      137: 13700020
+    second: chain2
+  - first:
+      137: 13700022
+    second: chain3
+  - first:
+      137: 13700024
+    second: cigarette
+  - first:
+      137: 13700026
+    second: cook_suit
+  - first:
+      137: 13700028
+    second: crowbar
+  - first:
+      137: 13700030
+    second: farmer_suit
+  - first:
+      137: 13700032
+    second: fireaxe
+  - first:
+      137: 13700034
+    second: fireman_suit
+  - first:
+      137: 13700036
+    second: glasses
+  - first:
+      137: 13700038
+    second: glock
+  - first:
+      137: 13700040
+    second: hair_a
+  - first:
+      137: 13700042
+    second: hair_b
+  - first:
+      137: 13700044
+    second: hair_c
+  - first:
+      137: 13700046
+    second: hair_d
+  - first:
+      137: 13700048
+    second: hair_e
+  - first:
+      137: 13700050
+    second: hat
+  - first:
+      137: 13700052
+    second: hat.001
+  - first:
+      137: 13700054
+    second: hat.002
+  - first:
+      137: 13700056
+    second: hat.003
+  - first:
+      137: 13700058
+    second: hat.004
+  - first:
+      137: 13700060
+    second: hat.005
+  - first:
+      137: 13700062
+    second: hat.006
+  - first:
+      137: 13700064
+    second: hat.007
+  - first:
+      137: 13700066
+    second: human_head_mesh
+  - first:
+      137: 13700068
+    second: human_mesh
+  - first:
+      137: 13700070
+    second: jacket
+  - first:
+      137: 13700072
+    second: mechanic
+  - first:
+      137: 13700074
+    second: nurse_suit
+  - first:
+      137: 13700076
+    second: phone
+  - first:
+      137: 13700078
+    second: police_suit
+  - first:
+      137: 13700080
+    second: pullover
+  - first:
+      137: 13700082
+    second: roober_suit
+  - first:
+      137: 13700084
+    second: scarf
+  - first:
+      137: 13700086
+    second: security_guard_suit
+  - first:
+      137: 13700088
+    second: seller_suit
+  - first:
+      137: 13700090
+    second: shirt
+  - first:
+      137: 13700092
+    second: shoes1
+  - first:
+      137: 13700094
+    second: shoes2
+  - first:
+      137: 13700096
+    second: shoes3
+  - first:
+      137: 13700098
+    second: shortpants
+  - first:
+      137: 13700100
+    second: t_shirt
+  - first:
+      137: 13700102
+    second: tank_top
+  - first:
+      137: 13700104
+    second: trousers
+  - first:
+      137: 13700106
+    second: worker
+  - first:
+      137: 13700108
+    second: human_stomach
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'RightLowerArm' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: simple_custom_human|crowbar_hit
+      takeName: simple_custom_human|crowbar_hit
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|crowbar_idle
+      takeName: simple_custom_human|crowbar_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|crowbar_work
+      takeName: simple_custom_human|crowbar_work
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|drinking
+      takeName: simple_custom_human|drinking
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 27
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|eating
+      takeName: simple_custom_human|eating
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|fireaxe_hit
+      takeName: simple_custom_human|fireaxe_hit
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|fireaxe_idle
+      takeName: simple_custom_human|fireaxe_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|glock_aim
+      takeName: simple_custom_human|glock_aim
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|glock_aim_shoot
+      takeName: simple_custom_human|glock_aim_shoot
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|glock_idle
+      takeName: simple_custom_human|glock_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|glock_idle_shoot
+      takeName: simple_custom_human|glock_idle_shoot
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|glock_reload
+      takeName: simple_custom_human|glock_reload
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|goto_crowbar_work
+      takeName: simple_custom_human|goto_crowbar_work
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 3
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|goto_ducking_afraid
+      takeName: simple_custom_human|goto_ducking_afraid
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|goto_hanging_up_wall
+      takeName: simple_custom_human|goto_hanging_up_wall
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|goto_phone_call
+      takeName: simple_custom_human|goto_phone_call
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|hands_up_move
+      takeName: simple_custom_human|hands_up_move
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|hanging_up_wall
+      takeName: simple_custom_human|hanging_up_wall
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|heads_up_stay
+      takeName: simple_custom_human|heads_up_stay
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|hello
+      takeName: simple_custom_human|hello
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|hit_left
+      takeName: simple_custom_human|hit_left
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|hit_ready_idle
+      takeName: simple_custom_human|hit_ready_idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|hit_right
+      takeName: simple_custom_human|hit_right
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|idle
+      takeName: simple_custom_human|idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|look_around_1
+      takeName: simple_custom_human|look_around_1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 53
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|look_around_2
+      takeName: simple_custom_human|look_around_2
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 92
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|look_around_3
+      takeName: simple_custom_human|look_around_3
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|look_around_4
+      takeName: simple_custom_human|look_around_4
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|phone_call
+      takeName: simple_custom_human|phone_call
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|pick_up
+      takeName: simple_custom_human|pick_up
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|run
+      takeName: simple_custom_human|run
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|sit_down
+      takeName: simple_custom_human|sit_down
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 4
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|sitting
+      takeName: simple_custom_human|sitting
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|smoking
+      takeName: simple_custom_human|smoking
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 33
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|walk
+      takeName: simple_custom_human|walk
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: simple_custom_human|walk_ducking
+      takeName: simple_custom_human|walk_ducking
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Custom simple human(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: simple_custom_human
+      parentName: Custom simple human(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Camera
+      parentName: simple_custom_human
+      position: {x: 0.00009655118, y: 6.478723e-19, z: 0.01443453}
+      rotation: {x: 0.5000001, y: -0.49999997, z: -0.49999994, w: 0.50000006}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone
+      parentName: simple_custom_human
+      position: {x: -0.0000083960595, y: 0, z: 0.0077295564}
+      rotation: {x: 0.7147684, y: -0.27875903, z: -0.57408476, w: 0.28605267}
+      scale: {x: 0.9999999, y: 0.9999998, z: 0.99999994}
+    - name: FPS_bone
+      parentName: Bone
+      position: {x: -0, y: 0.0028707504, z: 0}
+      rotation: {x: -3.5527137e-15, y: 0.000000119209275, z: -4.2351637e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.002
+      parentName: FPS_bone
+      position: {x: -0, y: 0.00008127689, z: 1.0587912e-24}
+      rotation: {x: -0.01888554, y: 0.0020449322, z: 0.12905595, w: 0.9914554}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: Bone.004
+      parentName: Bone.002
+      position: {x: -0, y: 0.0029487824, z: -0.000093474824}
+      rotation: {x: -0.015843758, y: 5.9022606e-11, z: 0.0000000037248231, w: 0.99987453}
+      scale: {x: 0.9999998, y: 0.99999976, z: 1}
+    - name: Bone.006
+      parentName: Bone.004
+      position: {x: 1.0905262e-10, y: 0.0010049426, z: -3.1199598e-13}
+      rotation: {x: -0.0000000018626419, y: 6.9386846e-18, z: -0.0000000037252899, w: 1}
+      scale: {x: 0.99999994, y: 0.9999997, z: 0.99999976}
+    - name: Bone.006_end
+      parentName: Bone.006
+      position: {x: -0, y: 0.002959219, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.007
+      parentName: Bone.002
+      position: {x: -0.00004852064, y: 0.0025089376, z: -0.00272062}
+      rotation: {x: 0.9689807, y: -0.07353692, z: 0.039881393, w: -0.23254709}
+      scale: {x: 0.9999997, y: 0.99999285, z: 0.9999776}
+    - name: Bone.011
+      parentName: Bone.007
+      position: {x: -0.0014382678, y: 0.0038579358, z: -0.00020201724}
+      rotation: {x: 0.25178388, y: 0.71821934, z: 0.5080938, w: 0.40324515}
+      scale: {x: 1, y: 1.0000001, z: 0.99999976}
+    - name: Bone.015
+      parentName: Bone.011
+      position: {x: -5.2154064e-10, y: 0.0025857042, z: 0.000008789841}
+      rotation: {x: 0.05043975, y: 0.00560723, z: -0.010579895, w: 0.9986554}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Bone.021
+      parentName: Bone.015
+      position: {x: -0.0032226634, y: 0.0012447513, z: 9.872019e-10}
+      rotation: {x: 1, y: 0.000000007450582, z: -0.0000000805594, w: 5.389821e-16}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Bone.021_end
+      parentName: Bone.021
+      position: {x: -0, y: 0.001988154, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.022
+      parentName: Bone.015
+      position: {x: -0.0044461424, y: 0.0012447512, z: 0.0000000013114185}
+      rotation: {x: 1, y: 0.000000007450582, z: -0.0000000805594, w: 5.389821e-16}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Bone.022_end
+      parentName: Bone.022
+      position: {x: -0, y: 0.001988154, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.008
+      parentName: Bone.002
+      position: {x: 8.229528e-17, y: 0.0029367753, z: 0.0028032318}
+      rotation: {x: 0.99781805, y: -0.05890669, z: 0.02758519, w: 0.011323018}
+      scale: {x: 0.99999994, y: 0.99999976, z: 1.0000011}
+    - name: Bone.012
+      parentName: Bone.008
+      position: {x: -0.0007509363, y: 0.0035406353, z: 0.000050937306}
+      rotation: {x: -0.4033968, y: -0.3890854, z: 0.59674937, w: 0.57425934}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: Bone.016
+      parentName: Bone.012
+      position: {x: -3.0035152e-10, y: 0.0025857047, z: -0.000008789748}
+      rotation: {x: -0.0025853517, y: -0.1976343, z: -0.59161264, w: 0.7816192}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: Bone.023
+      parentName: Bone.016
+      position: {x: 0.0008114505, y: 0.00063503557, z: -0.00016556922}
+      rotation: {x: -0.7071067, y: 0.7071068, z: 0.00000023828099, w: -0.00000013834686}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.023_end
+      parentName: Bone.023
+      position: {x: -0, y: 0.002002719, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.024
+      parentName: Bone.016
+      position: {x: -0.0044378447, y: 0.0012447524, z: 9.685754e-10}
+      rotation: {x: 1, y: -0.0000000027939682, z: -0.00000011734666, w: -3.8909515e-16}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: Bone.024_end
+      parentName: Bone.024
+      position: {x: -0, y: 0.002002719, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.025
+      parentName: Bone.016
+      position: {x: -0.0056364415, y: 0.0012447527, z: 0.0000000010430813}
+      rotation: {x: 0.6210517, y: -0.7837629, z: 0.00000057066785, w: -0.0032331045}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: Bone.025_end
+      parentName: Bone.025
+      position: {x: -0, y: 0.002002719, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.026
+      parentName: Bone.016
+      position: {x: -0.0069564157, y: 0.0012447527, z: 0.000000001490116}
+      rotation: {x: 1, y: -0.0000000027939682, z: -0.00000011734666, w: -3.8909515e-16}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: Bone.026_end
+      parentName: Bone.026
+      position: {x: -0, y: 0.002002719, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.005
+      parentName: Bone
+      position: {x: -0.00034947047, y: -0.000115811075, z: -0.0012383525}
+      rotation: {x: 0.96563053, y: 0.25529414, z: -0.00000008940698, w: 0.048812233}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: Bone.010
+      parentName: Bone.005
+      position: {x: 3.498517e-12, y: 0.0035596814, z: -3.5248575e-11}
+      rotation: {x: -1.0804634e-37, y: -0.00000004371138, z: -2.1175824e-22, w: 1}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1}
+    - name: Bone.014
+      parentName: Bone.010
+      position: {x: 8.812395e-18, y: 0.0037884207, z: 9.5756736e-18}
+      rotation: {x: -0.46672502, y: -0.21318373, z: 0.83045536, w: -0.21694335}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.017
+      parentName: Bone.014
+      position: {x: -3.1226757e-11, y: 0.0011161832, z: 1.7492883e-12}
+      rotation: {x: -1.4210861e-14, y: 0.00000008146036, z: -2.1175812e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.017_end
+      parentName: Bone.017
+      position: {x: -0, y: 0.00078391586, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.009
+      parentName: Bone
+      position: {x: -0.00034946992, y: -0.00011581076, z: 0.0011055405}
+      rotation: {x: 0.96422374, y: 0.25044158, z: -0.00000008940698, w: 0.0868999}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: Bone.013
+      parentName: Bone.009
+      position: {x: -1.5109318e-11, y: 0.0035596814, z: -3.5248575e-11}
+      rotation: {x: 4.5255263e-37, y: -0.00000004371138, z: -2.1175796e-22, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: Bone.018
+      parentName: Bone.013
+      position: {x: -3.7252913e-11, y: 0.0037884212, z: 9.5756736e-18}
+      rotation: {x: -0.42657346, y: -0.26225162, z: 0.8477723, w: -0.17476074}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Bone.019
+      parentName: Bone.018
+      position: {x: -3.1226924e-11, y: 0.0011161834, z: -7.554678e-12}
+      rotation: {x: -1.4210861e-14, y: 0.00000008146034, z: -2.1175801e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.019_end
+      parentName: Bone.019
+      position: {x: -0, y: 0.00078391586, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: human_mesh
+      parentName: Custom simple human(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: beard
+      parentName: human_mesh
+      position: {x: -0, y: 0, z: 0.013986984}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: beard_d
+      parentName: beard
+      position: {x: -0, y: 1.3986984, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: beard_c
+      parentName: beard
+      position: {x: -0, y: 1.3986984, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: beard_b
+      parentName: beard
+      position: {x: -0, y: 1.3986984, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: beard_a
+      parentName: beard
+      position: {x: -0, y: 1.3986984, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: props
+      parentName: human_mesh
+      position: {x: 0.000055011264, y: 0.000018482813, z: 0.014047863}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: phone
+      parentName: props
+      position: {x: -0.23756729, y: 0.69270253, z: 0.2644736}
+      rotation: {x: -0.00000006883939, y: -0.7071067, z: -0.00000006883938, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: fireaxe
+      parentName: props
+      position: {x: -0.24416429, y: 1.316595, z: 0.28404534}
+      rotation: {x: 0.7071068, y: -0.000000053385072, z: 0.7071067, w: 0.000000053385083}
+      scale: {x: 100, y: 100, z: 100}
+    - name: glock
+      parentName: props
+      position: {x: -0.28099257, y: 0.7891626, z: 0.28264222}
+      rotation: {x: -0.5, y: -0.5, z: -0.49999997, w: 0.50000006}
+      scale: {x: 100, y: 100, z: 100}
+    - name: bullet
+      parentName: glock
+      position: {x: -0.28099257, y: 0.7891626, z: 0.28264222}
+      rotation: {x: -0.5, y: -0.5, z: -0.49999997, w: 0.50000006}
+      scale: {x: 100, y: 100, z: 100}
+    - name: crowbar
+      parentName: props
+      position: {x: -0.24200715, y: 0.5944762, z: 0.2610278}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: cigarette
+      parentName: props
+      position: {x: -0.24113052, y: 0.64666635, z: 0.26450482}
+      rotation: {x: -0.50000006, y: -0.4999999, z: -0.5, w: 0.5}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hair
+      parentName: human_mesh
+      position: {x: 0.000055011264, y: 0.000018482813, z: 0.014047863}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hair_e
+      parentName: hair
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hair_d
+      parentName: hair
+      position: {x: 0.017885864, y: 1.7588323, z: -0.0000049107475}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hair_c
+      parentName: hair
+      position: {x: 0.017885864, y: 1.7588323, z: -0.0000049107475}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hair_b
+      parentName: hair
+      position: {x: 0.017885864, y: 1.7588323, z: -0.0000049107475}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hair_a
+      parentName: hair
+      position: {x: 0.017885864, y: 1.7588323, z: -0.0000049107475}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: cloth
+      parentName: human_mesh
+      position: {x: 0.000055011264, y: 0.000018482813, z: 0.007648993}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: complet_suits
+      parentName: cloth
+      position: {x: 0.00019398575, y: -0.00006893281, z: 0.005877499}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: worker
+      parentName: complet_suits
+      position: {x: 0.045663584, y: 0.45929328, z: -0.002729262}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat
+      parentName: worker
+      position: {x: 0.045663584, y: 0.45929328, z: -0.0027292625}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: seller_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: security_guard_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat.006
+      parentName: security_guard_suit
+      position: {x: 0.036598377, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: roober_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat.005
+      parentName: roober_suit
+      position: {x: 0.036598377, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: police_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat.007
+      parentName: police_suit
+      position: {x: 0.036598377, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: nurse_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: mechanic
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat.004
+      parentName: mechanic
+      position: {x: 0.036598377, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: fireman_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat.002
+      parentName: fireman_suit
+      position: {x: 0.036598377, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: farmer_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat.001
+      parentName: farmer_suit
+      position: {x: 0.036598377, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: cook_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hat.003
+      parentName: cook_suit
+      position: {x: 0.036598377, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: banker_suit
+      parentName: complet_suits
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547573}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: trousers
+      parentName: cloth
+      position: {x: 0.045663584, y: 0.45929328, z: -0.0027292625}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: tank_top
+      parentName: cloth
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: t_shirt
+      parentName: cloth
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: shortpants
+      parentName: cloth
+      position: {x: 0.045663584, y: 0.4592933, z: -0.0027292625}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: shoes3
+      parentName: cloth
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: shoes2
+      parentName: cloth
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: shoes1
+      parentName: cloth
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: shirt
+      parentName: cloth
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: scarf
+      parentName: cloth
+      position: {x: -0.083165385, y: 1.197936, z: -0.10352521}
+      rotation: {x: -0.5, y: 0.49999997, z: -0.5, w: 0.50000006}
+      scale: {x: 100, y: 100, z: 100}
+    - name: pullover
+      parentName: cloth
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: jacket
+      parentName: cloth
+      position: {x: 0.03659837, y: 1.1259159, z: -0.00037547605}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: glasses
+      parentName: cloth
+      position: {x: -0.08286967, y: 1.3501502, z: 0.00066222623}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: chain3
+      parentName: cloth
+      position: {x: 0.032496557, y: 1.370077, z: 0.000117384596}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: chain2
+      parentName: cloth
+      position: {x: 0.032496557, y: 1.370077, z: 0.000117384596}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: chain1
+      parentName: cloth
+      position: {x: 0.032496557, y: 1.370077, z: 0.000117384596}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: cap3
+      parentName: cloth
+      position: {x: 0.018789472, y: 1.7506987, z: -0.0000049435766}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: cap2
+      parentName: cloth
+      position: {x: 0.018789472, y: 1.7506987, z: -0.0000049435766}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: cap
+      parentName: cloth
+      position: {x: 0.018789472, y: 1.7506987, z: -0.0000049435766}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: human_head_mesh
+      parentName: human_mesh
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
