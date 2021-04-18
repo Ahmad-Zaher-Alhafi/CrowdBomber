@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoisonedMaterial: {fileID: 2100000, guid: 178ffb2643374ab4eb31774ed74230bf, type: 2}
   HealthDecreaser: 1
-  NavSampleDistance: 2
+  NavSampleDistance: 3
   ZHDistance: {x: 2, y: 0, z: 2}
   sensor: {fileID: 8724142798088882178}
   WalkingSpeed: 1
