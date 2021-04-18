@@ -24,6 +24,8 @@ public static class Constants
     public static string HumanTag = "Human";
     public static string ProjectileTag = "Projectile";
     public static string WallTag = "Wall";
+    public static string HumanTextCanvesTag = "HumanTextCanves";
+
 
     //Animation Clips Names
     public static string WalkAnimationClipName = "walk";

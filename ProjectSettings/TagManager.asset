@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - stealingpoint
   - sittingpoint
+  - HumanTextCanves
   layers:
   - Default
   - TransparentFX

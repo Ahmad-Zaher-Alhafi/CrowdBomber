@@ -19,7 +19,7 @@ public class GamePropertiesModifyier : MonoBehaviour
     public MainCanves MainCanves;
     public ProjectileThrower ProjectileThrower;
     public float CurrentMoneyValue;
-    public HumanCanvesStuff HumanCanvesStuff;
+    public HumanCanves HumanCanvesStuff;
     public Transform HumanCanves;
     public int InitialNumOfHumansInLevel;
     public bool HasToDeleteSaveFiles;
@@ -156,7 +156,7 @@ public class GamePropertiesModifyier : MonoBehaviour
         newHuman.name = "Human" + humansCounter;
         newHuman.transform.parent = HumansParent;
         GameManager.Humans.Add(newHuman);
-        CreateHumanCanvesStuff(newHuman);
+        //CreateHumanCanvesStuff(newHuman);
 
 
         if (isItNew)
@@ -169,12 +169,12 @@ public class GamePropertiesModifyier : MonoBehaviour
     /// Create the HumanCanvesStuff the contains the health slider and the money text of the zombie and assign it to it
     /// </summary>
     /// <param name="human">the human the you want to assgin the created HumanCanvessStuff to it</param>
-    public void CreateHumanCanvesStuff(Human human)
-    {
-        HumanCanvesStuff humanCanves = Instantiate(HumanCanvesStuff.gameObject, human.HealthSliderPoint.position, Quaternion.identity, HumanCanves).GetComponent<HumanCanvesStuff>();
-        humanCanves.Human = human;
-        human.HumanCanvesStuff = humanCanves;
-    }
+    //public void CreateHumanCanvesStuff(Human human)
+    //{
+    //    HumanCanvesStuff humanCanves = Instantiate(HumanCanvesStuff.gameObject, human.HealthSliderPoint.position, Quaternion.identity, HumanCanves).GetComponent<HumanCanvesStuff>();
+    //    humanCanves.Human = human;
+    //    human.HumanCanvesStuff = humanCanves;
+    //}
 
     /// <summary>
     /// 

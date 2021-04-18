@@ -17,11 +17,11 @@ public class Human : MonoBehaviour
     public Renderer[] MeshesRenderers;
     public float secondsToDisable;//time to disable the dead zombie's body
     public float DelayToGetPosioned;//get posioned after you get hit by the projectile after a delay (it is needed because the projectile collider is big which lead that the human get poisned before the ball reach the graound and explod)
-    public float ZombieValue;
-    public Canvas StaticCanves;
+    public float ZombieMoneyValue;
     public Transform HealthSliderPoint;
+    public Animator Animator;
+    public HumanCanves HumanCanves;
 
-    [HideInInspector] public HumanCanvesStuff HumanCanvesStuff;
     [HideInInspector] public bool IsPoisened;
     [HideInInspector] public float Health;
 
@@ -30,7 +30,6 @@ public class Human : MonoBehaviour
     private NavMeshAgent agent;
     private bool isDead;
     private GameManager gameManager;
-    private Animator animator;
     private bool hasToRunAway;
     private Human zombieToRunFrom;
 
@@ -74,7 +73,6 @@ public class Human : MonoBehaviour
         humanClothing = GetComponent<HumanClothing>();
         gamePropertiesModifyier = FindObjectOfType<GamePropertiesModifyier>();
         rig = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         delay = new WaitForSeconds(secondsToDisable);
         getPoisonDelay = new WaitForSeconds(DelayToGetPosioned);
@@ -162,7 +160,7 @@ public class Human : MonoBehaviour
         agent.speed = HumanRunningSpeed;
         hasToRunAway = true;
         this.zombieToRunFrom = zombieToRunFrom;
-        animator.Play(Constants.RunAnimationClipName);
+        Animator.Play(Constants.RunAnimationClipName);
     }
 
     public void OrderToStopRunnigAway(Human zombieToRunFrom)
@@ -183,11 +181,11 @@ public class Human : MonoBehaviour
         }
         else
         {
-            animator.speed = 1;
+            Animator.speed = 1;
             agent.speed = WalkingSpeed;
             hasToRunAway = false;
             this.zombieToRunFrom = null;
-            animator.Play(Constants.WalkAnimationClipName);
+            Animator.Play(Constants.WalkAnimationClipName);
         }
     }
 
@@ -416,8 +414,8 @@ public class Human : MonoBehaviour
             agent.enabled = false;
             rig.useGravity = false;
             sensor.gameObject.SetActive(false);
-            animator.speed = 1;
-            animator.Play(Constants.WalkduckedAnimationClipName);
+            Animator.speed = 1;
+            Animator.Play(Constants.WalkduckedAnimationClipName);
             gameManager.Zombies.Remove(this);
             gameManager.DeadZombies.Add(this);
             EventsManager.onZombieDeath();
@@ -440,13 +438,14 @@ public class Human : MonoBehaviour
         }
 
         OrderToStopRunnigAway(zombieToRunFrom);
-        gamePropertiesModifyier.UpdateMoneyValue(ZombieValue);
-        HumanCanvesStuff.ActivateHumanCanvesStuff();
+        gamePropertiesModifyier.UpdateMoneyValue(ZombieMoneyValue);
+        HumanCanves.gameObject.SetActive(true);
+        HumanCanves.ShowMoneyText();
         hasToRunAway = false;
         sensor.gameObject.SetActive(true);
         agent.speed = zombieRunningSpeed;
-        animator.speed = zombieRunningSpeed / 2;
-        animator.Play(Constants.WalkduckedAnimationClipName);
+        Animator.speed = zombieRunningSpeed / 2;
+        Animator.Play(Constants.WalkduckedAnimationClipName);
         gameManager.Humans.Remove(this);
         gameManager.Zombies.Add(this);
     }
@@ -527,7 +526,7 @@ public class Human : MonoBehaviour
 
         humanClothing.CreateRandomclothing();
         InitializeParameters();
-        HumanCanvesStuff.Reset();
+        //HumanCanvesStuff.Reset();
         foreach (Renderer renderer in MeshesRenderers)
         {
             renderer.material.color = Color.white;

@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private Vector3 cameraPosToGoTo;
     private bool isItFirstTimeLaunch;//if the player launched the game for the first time after closing it
     private WaitForSeconds delay;
-
+    private int currentLevelNum;
 
     private void Awake()
     {
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         mainCamera = Camera.main.transform;
         isItFirstTimeLaunch = true;
         delay = new WaitForSeconds(SecondstoStartNextStage);
+        currentLevelNum = 1;
         //SetCameraStagePos(StageNumber);
     }
 
@@ -154,6 +155,16 @@ public class GameManager : MonoBehaviour
         
         if (currentStageNumber > MaxStagesNumInLevel)
         {
+            Levels[currentLevelNum - 1].SetActive(false);
+            currentLevelNum++;
+
+            if (currentLevelNum > Levels.Length)
+            {
+                currentLevelNum = 1;
+            }
+
+            Levels[currentLevelNum - 1].SetActive(true);
+
             currentStageNumber = 1;
             gamePropertiesModifyier.PrepareNextStage(true, currentStageNumber);
         }
