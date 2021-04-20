@@ -43,14 +43,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b317cce82ac56b443b12ff7248d98063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  HumanPrefab: {fileID: 5554944526669506391, guid: cf409497c01b1f345b54e96d53aca058, type: 3}
+  ProjectilesNumberTxt: {fileID: 0}
+  GameManager: {fileID: 0}
+  HumanPrefab: {fileID: 8724142798573848377, guid: 65c4c6e438c87c546ad94769ea891ffe, type: 3}
   HumansParent: {fileID: 0}
   ZombieRunningSpeedIncreaser: 0.2
   MaxZombieRunningSpeed: 5
   MaxZombieHealth: 7
   ZombieRunningSpeed: 2.5
-  Health: 5
-  HealthIncreaser: 0.2
+  ZombieHealth: 5
+  ZombieHealthIncreaser: 0.2
+  ProjectilesNumber: 1
+  MainCanves: {fileID: 0}
+  ProjectileThrower: {fileID: 0}
+  CurrentMoneyValue: 500000
+  HumanCanvesStuff: {fileID: 3807297631013241019, guid: c120f571420d22e4097281af9d7c1c7b, type: 3}
+  HumanCanves: {fileID: 0}
+  InitialNumOfHumansInLevel: 10
+  HasToDeleteSaveFiles: 0
+  CurrentNumOfHumansInLevel: 0
   InitialZombieRunningSpeed: 2.5
   InitialHealth: 0
+  AddHealthPowerUpCost: 0
+  AddProjectilePowerUpCost: 0
+  AddHumanPowerUpCost: 0
+  AddRunSpeedPowerUpCost: 0
+  CurrentStageNumber: 0

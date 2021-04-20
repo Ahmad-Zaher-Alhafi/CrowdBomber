@@ -64,6 +64,7 @@ public class Human : MonoBehaviour
     private Transform UpBorder;
     private Transform DownBorder;
     private HumanClothing humanClothing;
+    private Collider humanCollider;
 
     void Start()
     {
@@ -79,7 +80,8 @@ public class Human : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         initialZombieRunningSpeed = gamePropertiesModifyier.InitialZombieRunningSpeed;
         initialHealth = gamePropertiesModifyier.InitialHealth;
-        SetStageBorders();
+        humanCollider = GetComponent<Collider>();
+        
 
         InitializeParameters();
     }
@@ -114,6 +116,8 @@ public class Human : MonoBehaviour
 
     public void InitializeParameters()
     {
+        SetStageBorders();
+
         isDead = false;
         IsPoisened = false;
         agent.speed = WalkingSpeed;
@@ -129,23 +133,23 @@ public class Human : MonoBehaviour
         }
     }
 
-    private void SetStageBorders()
+    public void SetStageBorders()
     {
-        if (gameManager.StageNumber == 1)
+        if (gamePropertiesModifyier.CurrentStageNumber == 1)
         {
             RightBorder = gameManager.RightBorderStage1;
             LeftBorder = gameManager.LeftBorderStage1;
             UpBorder = gameManager.UpBorderStage1;
             DownBorder = gameManager.DownBorderStage1;
         }
-        else if (gameManager.StageNumber == 2)
+        else if (gamePropertiesModifyier.CurrentStageNumber == 2)
         {
             RightBorder = gameManager.RightBorderStage2;
             LeftBorder = gameManager.LeftBorderStage2;
             UpBorder = gameManager.UpBorderStage2;
             DownBorder = gameManager.DownBorderStage2;
         }
-        else if (gameManager.StageNumber == 3)
+        else if (gamePropertiesModifyier.CurrentStageNumber == 3)
         {
             RightBorder = gameManager.RightBorderStage3;
             LeftBorder = gameManager.LeftBorderStage3;
@@ -418,7 +422,6 @@ public class Human : MonoBehaviour
             Animator.Play(Constants.WalkduckedAnimationClipName);
             gameManager.Zombies.Remove(this);
             gameManager.DeadZombies.Add(this);
-            EventsManager.onZombieDeath();
             StartCoroutine(DisableAfterTime());
         }
     }
@@ -437,6 +440,8 @@ public class Human : MonoBehaviour
             renderer.material.color = PoisonedMaterial.color;
         }
 
+        humanCollider.enabled = false;
+        humanCollider.enabled = true;
         OrderToStopRunnigAway(zombieToRunFrom);
         gamePropertiesModifyier.UpdateMoneyValue(ZombieMoneyValue);
         HumanCanves.gameObject.SetActive(true);
@@ -479,9 +484,7 @@ public class Human : MonoBehaviour
     private IEnumerator DisableAfterTime()
     {
         yield return delay;
-        //gameManager.Zombies.Remove(this);
-        //gameManager.DeadZombies.Add(this);
-        //Reset();
+        EventsManager.onZombieDeath();
         gameObject.SetActive(false);
     }
 
@@ -518,15 +521,9 @@ public class Human : MonoBehaviour
 
     public void Reset(bool isItNewLevel)
     {
-        //if (isItNewLevel)
-        //{
-        //    UpdateHealth(true);
-        //    UpdateZombieRunningSpeed(true);
-        //}
-
         humanClothing.CreateRandomclothing();
         InitializeParameters();
-        //HumanCanvesStuff.Reset();
+
         foreach (Renderer renderer in MeshesRenderers)
         {
             renderer.material.color = Color.white;

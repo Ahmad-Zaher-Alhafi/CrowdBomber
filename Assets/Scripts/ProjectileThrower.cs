@@ -20,6 +20,8 @@ public class ProjectileThrower : MonoBehaviour
     public Transform CannonBase;
     public Transform ProjectilesParent;
     public int InitialProjectilesNumber;
+    public GameManager GameManager;
+    [HideInInspector] public int NumOfActiveProjectilesInScene;//number of the projectiles that are in the scene currently
     [HideInInspector] public Queue<Rigidbody> Projectiles = new Queue<Rigidbody>();
 
     private Vector3 initialCannonBaseEuralAngle;
@@ -33,6 +35,7 @@ public class ProjectileThrower : MonoBehaviour
 
     void Start()
     {
+        NumOfActiveProjectilesInScene = 0;
         projectilesNumber = GamePropertiesModifyier.ProjectilesNumber;
         initialCannonBaseEuralAngle = CannonBase.eulerAngles;
         initialCannonEuralAngle = Cannon.eulerAngles;
@@ -60,7 +63,7 @@ public class ProjectileThrower : MonoBehaviour
 
     private void GetMousePosition()
     {
-        if (Input.GetMouseButton(0) && EventSystem.current.currentSelectedGameObject == null)
+        if (Input.GetMouseButton(0) && EventSystem.current.currentSelectedGameObject == null && !GameManager.IsStartingNextStage)
         {
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);//shot a ray from screen mouse position
             if (plane.Raycast(ray, out distance))//if that ray hit the virtual plane store the distance between the camera and the hit postion on the plane
@@ -80,11 +83,13 @@ public class ProjectileThrower : MonoBehaviour
     {
         if (projectilesNumber <= 0)
         {
+            TargetSign.gameObject.SetActive(false);
             return;
         }
 
-        if (Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject == null && targetPosition != Vector3.positiveInfinity)
+        if (Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject == null && targetPosition != Vector3.positiveInfinity && !GameManager.IsStartingNextStage)
         {
+            NumOfActiveProjectilesInScene++;
             Rigidbody objectToThrowRig = GetProjectile();
             objectToThrowRig.useGravity = true;
             objectToThrowRig.velocity = CalculateLaunchVelocity(objectToThrowRig.transform);

@@ -38,6 +38,7 @@ public class MainCanves : MonoBehaviour
     {
         StagesSlider.maxValue = gameManager.MaxStagesNumInLevel;
         StagesSlider.minValue = 1;
+        UpdatePowerUpsCostsTxts();
     }
 
     public void AddZombieRunningSpeed()
@@ -47,7 +48,7 @@ public class MainCanves : MonoBehaviour
             gamePropertiesModifyier.UpdateZombieRunningSpeed(false);
             gamePropertiesModifyier.UpdateMoneyValue(-AddRunSpeedPowerUp.PowerUpCost);
             AddRunSpeedPowerUp.PowerUpCost *= AddRunSpeedPowerUp.PowerUpCostIncreaseValue;
-            AddRunSpeedPowerUp.PowerUpCostText.text = (AddRunSpeedPowerUp.PowerUpCost).ToString();
+            UpdatePowerUpsCostsTxts();
             UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
             gamePropertiesModifyier.UpdateAddRunSpeedCost(AddRunSpeedPowerUp.PowerUpCost);
         }
@@ -55,12 +56,17 @@ public class MainCanves : MonoBehaviour
 
     public void AddHuman()
     {
+        if (gamePropertiesModifyier.CurrentNumOfHumansInLevel >= gamePropertiesModifyier.MaxNumOfHumansInLevel)
+        {
+            return;
+        }
+
         if (gamePropertiesModifyier.CurrentMoneyValue >= AddHumanPowerUp.PowerUpCost)
         {
             gamePropertiesModifyier.CreateHuman(true);
             gamePropertiesModifyier.UpdateMoneyValue(-AddHumanPowerUp.PowerUpCost);
             AddHumanPowerUp.PowerUpCost *= AddHumanPowerUp.PowerUpCostIncreaseValue;
-            AddHumanPowerUp.PowerUpCostText.text = (AddHumanPowerUp.PowerUpCost).ToString();
+            UpdatePowerUpsCostsTxts();
             UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
             gamePropertiesModifyier.UpdateAddHumanCost(AddHumanPowerUp.PowerUpCost);
         }
@@ -73,7 +79,7 @@ public class MainCanves : MonoBehaviour
             gamePropertiesModifyier.UpdateZombieHealth(false);
             gamePropertiesModifyier.UpdateMoneyValue(-AddHealthPowerUp.PowerUpCost);
             AddHealthPowerUp.PowerUpCost *= AddHealthPowerUp.PowerUpCostIncreaseValue;
-            AddHealthPowerUp.PowerUpCostText.text = (AddHealthPowerUp.PowerUpCost).ToString();
+            UpdatePowerUpsCostsTxts();
             UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
             gamePropertiesModifyier.UpdateAddHealthCost(AddHealthPowerUp.PowerUpCost);
         }
@@ -86,7 +92,7 @@ public class MainCanves : MonoBehaviour
             gamePropertiesModifyier.UpdateProjectilesNumber(false, false, 1);
             gamePropertiesModifyier.UpdateMoneyValue(-AddProjectilePowerUp.PowerUpCost);
             AddProjectilePowerUp.PowerUpCost *= AddProjectilePowerUp.PowerUpCostIncreaseValue;
-            AddProjectilePowerUp.PowerUpCostText.text = (AddProjectilePowerUp.PowerUpCost).ToString();
+            UpdatePowerUpsCostsTxts();
             UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
             gamePropertiesModifyier.UpdateAddProjectileCost(AddProjectilePowerUp.PowerUpCost);
         }
@@ -125,9 +131,14 @@ public class MainCanves : MonoBehaviour
             AddProjectilePowerUp.PowerUpCost = gamePropertiesModifyier.AddProjectilePowerUpCost;
         }
 
-        AddHumanPowerUp.PowerUpCostText.text = AddHumanPowerUp.PowerUpCost.ToString();
-        AddHealthPowerUp.PowerUpCostText.text = AddHealthPowerUp.PowerUpCost.ToString();
-        AddRunSpeedPowerUp.PowerUpCostText.text = AddRunSpeedPowerUp.PowerUpCost.ToString();
-        AddProjectilePowerUp.PowerUpCostText.text = AddProjectilePowerUp.PowerUpCost.ToString();
+        UpdatePowerUpsCostsTxts();
+    }
+
+    private void UpdatePowerUpsCostsTxts()
+    {
+        AddHumanPowerUp.PowerUpCostText.text = "$" + AddHumanPowerUp.PowerUpCost.ToString();
+        AddHealthPowerUp.PowerUpCostText.text = "$" + AddHealthPowerUp.PowerUpCost.ToString();
+        AddRunSpeedPowerUp.PowerUpCostText.text = "$" + AddRunSpeedPowerUp.PowerUpCost.ToString();
+        AddProjectilePowerUp.PowerUpCostText.text = "$" + AddProjectilePowerUp.PowerUpCost.ToString();
     }
 }

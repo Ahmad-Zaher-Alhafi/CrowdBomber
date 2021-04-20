@@ -15,6 +15,8 @@ public static class Constants
     public static string AddHumanPowerUpCostDataName = "AddHumanPowerUpCost";
     public static string AddProjectilePowerUpCostDataName = "AddProjectilePowerUpCost";
     public static string AddRunSpeedPowerUpCostDataName = "AddRunSpeedPowerUpCost";
+    public static string LevelNumberDataName = "LevelNumber";
+
 
 
     //Layers

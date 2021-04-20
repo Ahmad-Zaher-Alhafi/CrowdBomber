@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    public List<Human> Humans;
+    [HideInInspector] public List<Human> Humans;
     [HideInInspector] public List<Human> DeadZombies;
     [HideInInspector] public List<Human> Zombies;
+    [HideInInspector] public bool IsStartingNextStage;
+    public int LevelNumber;
     public int StageNumber;
     public Transform RightBorderStage1;
     public Transform LeftBorderStage1;
@@ -30,7 +34,12 @@ public class GameManager : MonoBehaviour
     public int MaxStagesNumInLevel;
     public MainCanves MainCanves;
     public float SecondstoStartNextStage;
-    public GameObject[] Levels;
+    public Level[] Levels;
+    public TextMeshProUGUI LevelNameTxt;
+    public GameObject BottomPowerUpsPanel;
+    public GameObject LoseWinPanel;
+    public TextMeshProUGUI LoseWinTxt;
+    public ProjectileThrower ProjectileThrower;
 
     private Transform mainCamera;
     private int currentStageNumber;
@@ -38,7 +47,14 @@ public class GameManager : MonoBehaviour
     private Vector3 cameraPosToGoTo;
     private bool isItFirstTimeLaunch;//if the player launched the game for the first time after closing it
     private WaitForSeconds delay;
-    private int currentLevelNum;
+    private int currentLevelNumber;
+
+    [System.Serializable]
+    public class Level
+    {
+        public GameObject LevelObject;
+        public string LevelName;
+    }
 
     private void Awake()
     {
@@ -48,12 +64,15 @@ public class GameManager : MonoBehaviour
         mainCamera = Camera.main.transform;
         isItFirstTimeLaunch = true;
         delay = new WaitForSeconds(SecondstoStartNextStage);
-        currentLevelNum = 1;
-        //SetCameraStagePos(StageNumber);
     }
 
     private void Update()
     {
+        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)) && EventSystem.current.currentSelectedGameObject == null)
+        {
+            BottomPowerUpsPanel.SetActive(false);
+        }
+
         if (hasToUpdateCameraPos)
         {
             if (Vector3.Distance(mainCamera.position, cameraPosToGoTo) > .1f)
@@ -64,6 +83,7 @@ public class GameManager : MonoBehaviour
             {
                 hasToUpdateCameraPos = false;
                 NavMeshSurface.BuildNavMesh();
+                BottomPowerUpsPanel.SetActive(true);
 
                 if (isItFirstTimeLaunch)
                 {
@@ -79,6 +99,18 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void ActivateLevel(int LevelNumber)
+    {
+        foreach (Level level in Levels)
+        {
+            level.LevelObject.SetActive(false);
+        }
+
+        currentLevelNumber = LevelNumber;
+        Levels[LevelNumber - 1].LevelObject.SetActive(true);
+        LevelNameTxt.text = Levels[LevelNumber - 1].LevelName;
+    }
+
     /// <summary>
     /// active the humans again after they being disabled in the previous stage
     /// </summary>
@@ -86,11 +118,18 @@ public class GameManager : MonoBehaviour
     {
         while (Humans.Count < gamePropertiesModifyier.CurrentNumOfHumansInLevel)
         {
-            Humans.Add(DeadZombies[0]);
-            DeadZombies[0].Reset(false);
-            DeadZombies[0].transform.position = gamePropertiesModifyier.GetRandomCreatPoint();
-            DeadZombies[0].gameObject.SetActive(true);
-            DeadZombies.Remove(DeadZombies[0]);
+            if (DeadZombies.Count > 0)
+            {
+                Humans.Add(DeadZombies[0]);
+                DeadZombies[0].Reset(false);
+                DeadZombies[0].transform.position = gamePropertiesModifyier.GetRandomCreatPoint();
+                DeadZombies[0].gameObject.SetActive(true);
+                DeadZombies.Remove(DeadZombies[0]);
+            }
+            else
+            {
+                return;
+            }
         }
         //DeadZombies.Clear();
     }
@@ -144,10 +183,13 @@ public class GameManager : MonoBehaviour
         DownBorderStage3.gameObject.SetActive(stage3);
     }
 
-    private IEnumerator StartStage(bool hasWon)
+    public IEnumerator StartNextStage(bool hasWon)
     {
+        IsStartingNextStage = true;
         yield return delay;
 
+        IsStartingNextStage = false;
+        LoseWinPanel.SetActive(false);
         if (hasWon)
         {
             currentStageNumber++;
@@ -155,22 +197,23 @@ public class GameManager : MonoBehaviour
         
         if (currentStageNumber > MaxStagesNumInLevel)
         {
-            Levels[currentLevelNum - 1].SetActive(false);
-            currentLevelNum++;
+            Levels[currentLevelNumber - 1].LevelObject.SetActive(false);
+            currentLevelNumber++;
 
-            if (currentLevelNum > Levels.Length)
+            if (currentLevelNumber > Levels.Length)
             {
-                currentLevelNum = 1;
+                currentLevelNumber = 1;
             }
 
-            Levels[currentLevelNum - 1].SetActive(true);
+            Levels[currentLevelNumber - 1].LevelObject.SetActive(true);
+            LevelNameTxt.text = Levels[currentLevelNumber - 1].LevelName;
 
             currentStageNumber = 1;
-            gamePropertiesModifyier.PrepareNextStage(true, currentStageNumber);
+            gamePropertiesModifyier.PrepareNextStage(true, currentStageNumber, currentLevelNumber);
         }
         else
         {
-            gamePropertiesModifyier.PrepareNextStage(false, currentStageNumber);
+            gamePropertiesModifyier.PrepareNextStage(false, currentStageNumber, currentLevelNumber);
         }
 
         MainCanves.UpdateStageSlider(currentStageNumber);
@@ -182,7 +225,7 @@ public class GameManager : MonoBehaviour
         {
             Win();
         }
-        else if (gamePropertiesModifyier.ProjectilesNumber <= 0 && Zombies.Count == 0)
+        else if (gamePropertiesModifyier.ProjectilesNumber <= 0 && Zombies.Count == 0 && ProjectileThrower.NumOfActiveProjectilesInScene == 0)
         {
             Lose();
         }
@@ -190,14 +233,18 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        print("You Win!");
-        StartCoroutine(StartStage(true));
+        //print("You Win!");
+        LoseWinTxt.text = "Congrats!\n\nLevel Was Completed";
+        LoseWinPanel.SetActive(true);
+        StartCoroutine(StartNextStage(true));
     }
 
     public void Lose()
     {
-        print("You Lose!");
-        StartCoroutine(StartStage(false));
+        //print("You Lose!");
+        LoseWinTxt.text = "You Lose!\n\nTry Again";
+        LoseWinPanel.SetActive(true);
+        StartCoroutine(StartNextStage(false));
     }
 
     private void OnDestroy()

@@ -22,6 +22,9 @@ public class GamePropertiesModifyier : MonoBehaviour
     public HumanCanves HumanCanvesStuff;
     public Transform HumanCanves;
     public int InitialNumOfHumansInLevel;
+    public int MaxNumOfHumansInLevel;
+
+    [Header("Check it if you want to delete the saved data")]
     public bool HasToDeleteSaveFiles;
 
     [HideInInspector] public int CurrentNumOfHumansInLevel;
@@ -31,6 +34,7 @@ public class GamePropertiesModifyier : MonoBehaviour
     [HideInInspector] public float AddProjectilePowerUpCost;
     [HideInInspector] public float AddHumanPowerUpCost;
     [HideInInspector] public float AddRunSpeedPowerUpCost;
+    [HideInInspector] public int CurrentStageNumber;
 
 
     private int maxAddedProjectiles;
@@ -38,8 +42,7 @@ public class GamePropertiesModifyier : MonoBehaviour
     private Transform LeftBorder;
     private Transform UpBorder;
     private Transform DownBorder;
-    private WaitForSeconds delay;
-    private int currentStageNumber;
+    private int currentLevelNumber;
     private int humansCounter = 0;
 
     private void Awake()
@@ -50,7 +53,6 @@ public class GamePropertiesModifyier : MonoBehaviour
         }
 
         InitializeProperties();
-        delay = new WaitForSeconds(.5f);
         
         if (DataManager.CheckForDataName(Constants.ZombieRunningSpeedDataName))
         {
@@ -75,7 +77,7 @@ public class GamePropertiesModifyier : MonoBehaviour
 
         if (DataManager.CheckForDataName(Constants.StageNumberDataName))
         {
-            currentStageNumber = DataManager.LoadInt(Constants.StageNumberDataName);
+            CurrentStageNumber = DataManager.LoadInt(Constants.StageNumberDataName);
         }
 
         if (DataManager.CheckForDataName(Constants.MoneyValueDataName))
@@ -102,16 +104,22 @@ public class GamePropertiesModifyier : MonoBehaviour
         {
             AddRunSpeedPowerUpCost = DataManager.LoadFloat(Constants.AddRunSpeedPowerUpCostDataName);
         }
+
+        if (DataManager.CheckForDataName(Constants.LevelNumberDataName))
+        {
+            currentLevelNumber = DataManager.LoadInt(Constants.LevelNumberDataName);
+        }
     }
 
     private void Start()
     {
-        SetStageBorders(currentStageNumber);
-        MainCanves.UpdateStageSlider(currentStageNumber);
+        SetStageBorders(CurrentStageNumber);
+        MainCanves.UpdateStageSlider(CurrentStageNumber);
         UpdateMoneyValue(0);
         MainCanves.UpdatePowerUpsCosts(false);
         UpdateProjectilesText();
-        PrepareNextStage(false, currentStageNumber);
+        GameManager.ActivateLevel(currentLevelNumber);
+        PrepareNextStage(false, CurrentStageNumber, currentLevelNumber);
     }
 
     private void InitializeProperties()
@@ -119,7 +127,8 @@ public class GamePropertiesModifyier : MonoBehaviour
         InitialZombieRunningSpeed = ZombieRunningSpeed;
         InitialHealth = ZombieHealth;
         maxAddedProjectiles = ProjectilesNumber;
-        currentStageNumber = GameManager.StageNumber;
+        CurrentStageNumber = GameManager.StageNumber;
+        currentLevelNumber = GameManager.LevelNumber;
         AddHealthPowerUpCost = MainCanves.AddHealthPowerUp.PowerUpCost;
         AddProjectilePowerUpCost = MainCanves.AddProjectilePowerUp.PowerUpCost;
         AddHumanPowerUpCost = MainCanves.AddHumanPowerUp.PowerUpCost;
@@ -156,25 +165,12 @@ public class GamePropertiesModifyier : MonoBehaviour
         newHuman.name = "Human" + humansCounter;
         newHuman.transform.parent = HumansParent;
         GameManager.Humans.Add(newHuman);
-        //CreateHumanCanvesStuff(newHuman);
-
 
         if (isItNew)
         {
             CurrentNumOfHumansInLevel++;
         }
     }
-
-    /// <summary>
-    /// Create the HumanCanvesStuff the contains the health slider and the money text of the zombie and assign it to it
-    /// </summary>
-    /// <param name="human">the human the you want to assgin the created HumanCanvessStuff to it</param>
-    //public void CreateHumanCanvesStuff(Human human)
-    //{
-    //    HumanCanvesStuff humanCanves = Instantiate(HumanCanvesStuff.gameObject, human.HealthSliderPoint.position, Quaternion.identity, HumanCanves).GetComponent<HumanCanvesStuff>();
-    //    humanCanves.Human = human;
-    //    human.HumanCanvesStuff = humanCanves;
-    //}
 
     /// <summary>
     /// 
@@ -288,13 +284,16 @@ public class GamePropertiesModifyier : MonoBehaviour
         }
     }
 
-    public void PrepareNextStage(bool isItNewLevel, int stageNumber)
+    /// <summary>
+    /// This function is where evrything starts from
+    /// </summary>
+    /// <param name="isItNewLevel">If the player started a new level</param>
+    /// <param name="stageNumber">The stage number that the player has reached</param>
+    /// <param name="levelNumber">The level number that the player has reached</param>
+    public void PrepareNextStage(bool isItNewLevel, int stageNumber, int levelNumber)
     {
         if (isItNewLevel)
         {
-            //PlayerPrefs.DeleteAll();
-            //InitializeProperties();
-            //ProjectileThrower.UpdateProjectilesNumber(true);
             UpdateProjectilesNumber(true, false);
             MainCanves.UpdatePowerUpsCosts(true);
             UpdateZombieHealth(true);
@@ -312,7 +311,7 @@ public class GamePropertiesModifyier : MonoBehaviour
         }
 
         UpdateProjectilesText();
-        currentStageNumber = stageNumber;
+        CurrentStageNumber = stageNumber;
         SetStageBorders(stageNumber);
         GameManager.SetCameraStagePos(stageNumber);
     }
@@ -334,17 +333,30 @@ public class GamePropertiesModifyier : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    public void SaveData()
     {
         DataManager.SaveFloat(Constants.ZombieRunningSpeedDataName, ZombieRunningSpeed);
         DataManager.SaveInt(Constants.NumOfHumansDataName, CurrentNumOfHumansInLevel);
         DataManager.SaveFloat(Constants.ZombieHealthDataName, ZombieHealth);
         DataManager.SaveInt(Constants.ProjectilesNumberDataName, maxAddedProjectiles);
-        DataManager.SaveInt(Constants.StageNumberDataName, currentStageNumber);
+        DataManager.SaveInt(Constants.StageNumberDataName, CurrentStageNumber);
         DataManager.SaveFloat(Constants.MoneyValueDataName, CurrentMoneyValue);
         DataManager.SaveFloat(Constants.AddHealthPowerUpCostDataName, AddHealthPowerUpCost);
         DataManager.SaveFloat(Constants.AddHumanPowerUpCostDataName, AddHumanPowerUpCost);
         DataManager.SaveFloat(Constants.AddProjectilePowerUpCostDataName, AddProjectilePowerUpCost);
         DataManager.SaveFloat(Constants.AddRunSpeedPowerUpCostDataName, AddRunSpeedPowerUpCost);
+        DataManager.SaveInt(Constants.LevelNumberDataName, currentLevelNumber);
+
+        PlayerPrefs.Save();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        SaveData();
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveData();
     }
 }

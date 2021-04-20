@@ -6,12 +6,17 @@ using UnityEngine.UI;
 
 public class HumanCanves : MonoBehaviour
 {
-    public GameObject MoneyTextPrefab;
+    public GameObject MoneyTextParentPrefab;
     public float SecondsToDeactivateMoneyTexy;
     public Transform HealthCircle;
     public Transform MoneyTextPoint;
     public Human Human;
+    public float HealthCircleSizeOnStage1;
+    public float HealthCircleSizeOnStage2;
+    public float HealthCircleSizeOnStage3;
 
+
+    private Transform moneyTextParent;
     private Transform humanTextCanves;
     private TextMeshProUGUI moneyText;
     private Vector3 initialHealthCircleScale;
@@ -23,26 +28,24 @@ public class HumanCanves : MonoBehaviour
     {
         maincamera = Camera.main;
         humanTextCanves = GameObject.FindGameObjectWithTag(Constants.HumanTextCanvesTag).transform;
+        delay = new WaitForSeconds(SecondsToDeactivateMoneyTexy);
 
         if (moneyText == null)
         {
-            moneyText = Instantiate(MoneyTextPrefab, MoneyTextPoint.position, Quaternion.identity, humanTextCanves).GetComponent<TextMeshProUGUI>();
+            moneyTextParent = Instantiate(MoneyTextParentPrefab, MoneyTextPoint.position, Quaternion.identity, humanTextCanves).transform;
+            moneyText = moneyTextParent.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
-    }
 
-    void Start()
-    {
         initialHealthCircleScale = HealthCircle.localScale;
         gamePropertiesModifyier = FindObjectOfType<GamePropertiesModifyier>();
-        delay = new WaitForSeconds(SecondsToDeactivateMoneyTexy);
+        SetHealthCircleScale();
     }
-
 
     void Update()
     {
         transform.LookAt(maincamera.transform);
-        moneyText.transform.LookAt(maincamera.transform);
-        moneyText.transform.position = MoneyTextPoint.position;
+        moneyTextParent.LookAt(maincamera.transform);
+        moneyTextParent.position = MoneyTextPoint.position;
 
         if (HealthCircle.localScale.x > 0)
         {
@@ -55,22 +58,36 @@ public class HumanCanves : MonoBehaviour
         }
     }
 
-    public void ShowMoneyText()
+    private void SetHealthCircleScale()
     {
-        print("show");
-        moneyText.text = "+" + Human.ZombieMoneyValue.ToString();
-        moneyText.gameObject.SetActive(true);
-        StartCoroutine(DeactivateMoneyText());
+        if (gamePropertiesModifyier.CurrentStageNumber == 1)
+        {
+            transform.localScale = Vector3.one * HealthCircleSizeOnStage1;
+            moneyTextParent.transform.localScale = Vector3.one * HealthCircleSizeOnStage1;
+        }
+        else if (gamePropertiesModifyier.CurrentStageNumber == 2)
+        {
+            transform.localScale = Vector3.one * HealthCircleSizeOnStage2;
+            moneyTextParent.transform.localScale = Vector3.one * HealthCircleSizeOnStage2;
+        }
+        else if (gamePropertiesModifyier.CurrentStageNumber == 3)
+        {
+            transform.localScale = Vector3.one * HealthCircleSizeOnStage3;
+            moneyTextParent.transform.localScale = Vector3.one * HealthCircleSizeOnStage3;
+        }
     }
 
-    //public void Reset()
-    //{
-    //    HealthCircle.localScale = initialHealthCircleScale;
-    //}
+    public void ShowMoneyText()
+    {
+        moneyText.text = "$" + Human.ZombieMoneyValue.ToString();
+        moneyTextParent.gameObject.SetActive(true);
+        SetHealthCircleScale();
+        StartCoroutine(DeactivateMoneyText());
+    }
 
     private IEnumerator DeactivateMoneyText()
     {
         yield return delay;
-        moneyText.gameObject.SetActive(false);
+        moneyTextParent.gameObject.SetActive(false);
     }
 }

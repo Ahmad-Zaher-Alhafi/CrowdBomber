@@ -46,7 +46,9 @@ MonoBehaviour:
   Humans: []
   DeadZombies: []
   Zombies: []
-  StageNumber: 3
+  IsStartingNextStage: 0
+  LevelNumber: 1
+  StageNumber: 1
   RightBorderStage1: {fileID: 0}
   LeftBorderStage1: {fileID: 0}
   UpBorderStage1: {fileID: 0}
@@ -68,4 +70,15 @@ MonoBehaviour:
   MaxStagesNumInLevel: 3
   MainCanves: {fileID: 0}
   SecondstoStartNextStage: 2
-  Levels: []
+  Levels:
+  - LevelObject: {fileID: 0}
+    LevelName: City Center
+  - LevelObject: {fileID: 0}
+    LevelName: Cutoff Road
+  - LevelObject: {fileID: 0}
+    LevelName: Camping Travel
+  LevelNameTxt: {fileID: 0}
+  BottomPowerUpsPanel: {fileID: 0}
+  LoseWinPanel: {fileID: 0}
+  LoseWinTxt: {fileID: 0}
+  ProjectileThrower: {fileID: 0}
