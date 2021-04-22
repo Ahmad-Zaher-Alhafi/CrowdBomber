@@ -30,7 +30,7 @@ Material:
     - _FaceTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 0, y: 0}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 0.32, y: 0}
     - _MainTex:
         m_Texture: {fileID: 14103349043510061}
         m_Scale: {x: 1, y: 1}
@@ -51,7 +51,7 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: -0.126
+    - _FaceDilate: 0.338
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -65,12 +65,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.283
+    - _OutlineWidth: 0.33
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.78208333
-    - _ScaleRatioC: 0.78208333
+    - _ScaleRatioB: 0.39541665
+    - _ScaleRatioC: 0.39541665
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -97,7 +97,7 @@ Material:
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.7950783, g: 0, b: 1, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
@@ -113,11 +113,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Fattern-GO6zm SDF
+  m_Name: Fattern-GO6zm SDF Moent Text
   m_EditorClassIdentifier: 
-  hashCode: 720663947
+  hashCode: 1806110091
   material: {fileID: -6921021515754354440}
-  materialHashCode: -1493782453
+  materialHashCode: -874100661
   m_Version: 1.1.0
   m_SourceFontFileGUID: 1cc6655098a377c4fa46d17c45ed7038
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 1cc6655098a377c4fa46d17c45ed7038, type: 3}

@@ -11,7 +11,8 @@ public class Projectile : MonoBehaviour
     private Rigidbody rig;
     private WaitForSeconds delay;
     private MeshRenderer meshRenderer;
-
+    private int numOfHumansThatBeingHit;
+    private GameObject humanThatBeingHit;
     private void Start()
     {
         projectileThrower = FindObjectOfType<ProjectileThrower>();
@@ -31,13 +32,29 @@ public class Projectile : MonoBehaviour
             {
                 particle.Play();
             }
-            StartCoroutine(Wait());
+            StartCoroutine(IDeactivate());
+        }
+        else if (other.CompareTag(Constants.HumanTag))
+        {
+            Human human = other.GetComponent<Human>();
+
+            if (other.gameObject != humanThatBeingHit && !human.IsPoisened)
+            {
+                numOfHumansThatBeingHit++;
+                humanThatBeingHit = other.gameObject;
+
+                if (numOfHumansThatBeingHit >= 2)
+                {
+                    human.OrderToShowSpecialText(numOfHumansThatBeingHit);
+                }
+            }
         }
     }
 
-    private IEnumerator Wait()
+    private IEnumerator IDeactivate()
     {
         yield return delay;
+        numOfHumansThatBeingHit = 0;
         projectileThrower.NumOfActiveProjectilesInScene--;
         EventsManager.OnProjectileDeactivate();
         gameObject.SetActive(false);

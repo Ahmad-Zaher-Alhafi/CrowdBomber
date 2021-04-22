@@ -577,6 +577,10 @@ MonoBehaviour:
   HealthCircleSizeOnStage1: 1
   HealthCircleSizeOnStage2: 1.5
   HealthCircleSizeOnStage3: 2
+  specialWords:
+  - Awesome!
+  - Great!
+  - Insane!
 --- !u!1 &4678147537510700556
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,9 +714,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8540451582024235347}
   - component: {fileID: 7429988297252357621}
-  - component: {fileID: 8724142799420399385}
   - component: {fileID: 8724142798573848359}
   - component: {fileID: 8724142798573848376}
+  - component: {fileID: 8724142799420399385}
   - component: {fileID: 8724142798573848377}
   m_Layer: 6
   m_Name: Human
@@ -761,6 +765,36 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &8724142798573848359
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813828300683229508}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &8724142798573848376
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813828300683229508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8802075
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.83662844, z: 0}
 --- !u!114 &8724142799420399385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,36 +1120,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 996bfd217498369448ef837f1a7b7c48, type: 3}
   - {fileID: 2800000, guid: 6269eb3a8378a8242b1a4afb004778d2, type: 3}
   - {fileID: 2800000, guid: 4a35a1bacc4f6ce43ba1e205018b24c2, type: 3}
---- !u!54 &8724142798573848359
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4813828300683229508}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &8724142798573848376
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4813828300683229508}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.8802075
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.83662844, z: 0}
 --- !u!114 &8724142798573848377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1135,7 @@ MonoBehaviour:
   PoisonedMaterial: {fileID: 2100000, guid: 178ffb2643374ab4eb31774ed74230bf, type: 2}
   HealthDecreaser: 1
   NavSampleDistance: 3
-  ZHDistance: {x: 2, y: 0, z: 2}
+  ZHDistance: {x: 0, y: 0, z: 0}
   sensor: {fileID: 8724142798088882178}
   WalkingSpeed: 1
   HumanRunningSpeed: 2.5

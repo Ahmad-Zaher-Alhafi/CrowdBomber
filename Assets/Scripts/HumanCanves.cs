@@ -14,6 +14,7 @@ public class HumanCanves : MonoBehaviour
     public float HealthCircleSizeOnStage1;
     public float HealthCircleSizeOnStage2;
     public float HealthCircleSizeOnStage3;
+    public string[] specialWords;
 
 
     private Transform moneyTextParent;
@@ -23,6 +24,9 @@ public class HumanCanves : MonoBehaviour
     private WaitForSeconds delay;
     private GamePropertiesModifyier gamePropertiesModifyier;
     private Camera maincamera;
+    private bool hasToShowSpecialWord;
+    private int numOfHumansThatBeingHit;
+    private float initialFontSize;
 
     private void Awake()
     {
@@ -34,6 +38,7 @@ public class HumanCanves : MonoBehaviour
         {
             moneyTextParent = Instantiate(MoneyTextParentPrefab, MoneyTextPoint.position, Quaternion.identity, humanTextCanves).transform;
             moneyText = moneyTextParent.GetChild(0).GetComponent<TextMeshProUGUI>();
+            initialFontSize = moneyText.fontSize;
         }
 
         initialHealthCircleScale = HealthCircle.localScale;
@@ -77,12 +82,30 @@ public class HumanCanves : MonoBehaviour
         }
     }
 
+    public void ShowSpecialText(int numOfHumansThatBeingHit)
+    {
+        this.numOfHumansThatBeingHit = numOfHumansThatBeingHit;
+        hasToShowSpecialWord = true;
+    }
+
     public void ShowMoneyText()
     {
-        moneyText.text = "$" + Human.ZombieMoneyValue.ToString();
+        if (hasToShowSpecialWord)
+        {
+            hasToShowSpecialWord = false;
+            moneyText.text = specialWords[numOfHumansThatBeingHit - 2];
+            moneyText.fontSize *= 1.3f;
+        }
+        else
+        {
+            moneyText.fontSize = initialFontSize;
+            moneyText.text = "$" + Human.ZombieMoneyValue.ToString();
+        }
+        
         moneyTextParent.gameObject.SetActive(true);
         SetHealthCircleScale();
         StartCoroutine(DeactivateMoneyText());
+        
     }
 
     private IEnumerator DeactivateMoneyText()

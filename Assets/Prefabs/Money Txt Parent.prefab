@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -89.2274, y: -98.333}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8249711465479788347
 CanvasRenderer:
@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: $200
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1fa8fa111c6d9049a99037bd655735b, type: 2}
-  m_sharedMaterial: {fileID: -6921021515754354440, guid: a1fa8fa111c6d9049a99037bd655735b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eeac86da95358fe419fb8bae3ca4b722, type: 2}
+  m_sharedMaterial: {fileID: -6921021515754354440, guid: eeac86da95358fe419fb8bae3ca4b722, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -163,6 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8668000077039859775}
+  - component: {fileID: 3953236976594503424}
   m_Layer: 0
   m_Name: Money Txt Parent
   m_TagString: Untagged
@@ -190,3 +191,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.5653076}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3953236976594503424
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668000077039859768}
+  m_CullTransparentMesh: 1

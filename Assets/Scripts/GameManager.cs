@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,9 +38,10 @@ public class GameManager : MonoBehaviour
     public Level[] Levels;
     public TextMeshProUGUI LevelNameTxt;
     public GameObject BottomPowerUpsPanel;
-    public GameObject LoseWinPanel;
+    public Image LoseWinPanel;
     public TextMeshProUGUI LoseWinTxt;
     public ProjectileThrower ProjectileThrower;
+    //public float PlashingPanelFadingSpeed;
 
     private Transform mainCamera;
     private int currentStageNumber;
@@ -48,6 +50,11 @@ public class GameManager : MonoBehaviour
     private bool isItFirstTimeLaunch;//if the player launched the game for the first time after closing it
     private WaitForSeconds delay;
     private int currentLevelNumber;
+    private int oldStageNumber;
+    //private float loseWinPanelAlpha;
+    //private bool hasToShowFlashingPannel;
+    //private float initialLoseWinPanelAlphaValue;
+
 
     [System.Serializable]
     public class Level
@@ -64,6 +71,7 @@ public class GameManager : MonoBehaviour
         mainCamera = Camera.main.transform;
         isItFirstTimeLaunch = true;
         delay = new WaitForSeconds(SecondstoStartNextStage);
+        oldStageNumber = 0;
     }
 
     private void Update()
@@ -81,8 +89,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                ProjectileThrower.gameObject.SetActive(true);
                 hasToUpdateCameraPos = false;
-                NavMeshSurface.BuildNavMesh();
+                if (currentStageNumber != oldStageNumber)
+                {
+                    oldStageNumber = currentStageNumber;
+                    NavMeshSurface.BuildNavMesh();//build the navmesh after we changed the stage borders
+                }
                 BottomPowerUpsPanel.SetActive(true);
 
                 if (isItFirstTimeLaunch)
@@ -131,7 +144,6 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        //DeadZombies.Clear();
     }
 
     /// <summary>
@@ -139,23 +151,23 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void SetCameraStagePos(int stageNumber)
     {
+        ProjectileThrower.gameObject.SetActive(false);
+        currentStageNumber = stageNumber;
+
         if (stageNumber == 1)
         {
             cameraPosToGoTo = new Vector3(mainCamera.position.x, CameraStage1Pos.y, CameraStage1Pos.z);
             SetBordersActivation(true, false, false);
-            currentStageNumber = 1;
         }
         else if (stageNumber == 2)
         {
             cameraPosToGoTo = new Vector3(mainCamera.position.x, CameraStage2Pos.y, CameraStage2Pos.z);
             SetBordersActivation(false, true, false);
-            currentStageNumber = 2;
         }
         else if (stageNumber == 3)
         {
             cameraPosToGoTo = new Vector3(mainCamera.position.x, CameraStage3Pos.y, CameraStage3Pos.z);
             SetBordersActivation(false, false, true);
-            currentStageNumber = 3;
         }
 
         hasToUpdateCameraPos = true;
@@ -189,7 +201,7 @@ public class GameManager : MonoBehaviour
         yield return delay;
 
         IsStartingNextStage = false;
-        LoseWinPanel.SetActive(false);
+        LoseWinPanel.gameObject.SetActive(false);
         if (hasWon)
         {
             currentStageNumber++;
@@ -233,17 +245,17 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        //print("You Win!");
         LoseWinTxt.text = "Congrats!\n\nLevel Was Completed";
-        LoseWinPanel.SetActive(true);
+        LoseWinPanel.gameObject.SetActive(true);
+        LoseWinTxt.gameObject.SetActive(true);
         StartCoroutine(StartNextStage(true));
     }
 
     public void Lose()
     {
-        //print("You Lose!");
         LoseWinTxt.text = "You Lose!\n\nTry Again";
-        LoseWinPanel.SetActive(true);
+        LoseWinPanel.gameObject.SetActive(true);
+        LoseWinTxt.gameObject.SetActive(true);
         StartCoroutine(StartNextStage(false));
     }
 

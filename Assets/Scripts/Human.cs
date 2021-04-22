@@ -190,6 +190,11 @@ public class Human : MonoBehaviour
             hasToRunAway = false;
             this.zombieToRunFrom = null;
             Animator.Play(Constants.WalkAnimationClipName);
+
+            goingRightProbability = 0;
+            goingLeftProbability = 0;
+            goingUpProbability = 0;
+            goingDownProbability = 0;
         }
     }
 
@@ -202,14 +207,14 @@ public class Human : MonoBehaviour
         }
 
         runTo = Vector3.zero;
-        offsetOnX = Mathf.Abs(transform.position.x) - Mathf.Abs(zombieToRunFrom.transform.position.x);
-        offsetOnZ = Mathf.Abs(transform.position.z) - Mathf.Abs(zombieToRunFrom.transform.position.z);
+        offsetOnX = transform.position.x - zombieToRunFrom.transform.position.x;
+        offsetOnZ = transform.position.z - zombieToRunFrom.transform.position.z;
 
         FindEscabeWay();
 
         if (NavMesh.SamplePosition(runTo, out hit, NavSampleDistance, 1 << NavMesh.GetAreaFromName("Walkable")))
         {
-            if (Mathf.Abs(runTo.x) < RightBorder.position.x && Mathf.Abs(runTo.x) > LeftBorder.position.x && Mathf.Abs(runTo.z) < UpBorder.position.z && Mathf.Abs(runTo.z) > DownBorder.position.z)
+            if (runTo.x < RightBorder.position.x && runTo.x > LeftBorder.position.x && runTo.z < UpBorder.position.z && runTo.z > DownBorder.position.z)
             { 
                 agent.SetDestination(runTo);
             }
@@ -217,72 +222,68 @@ public class Human : MonoBehaviour
             {
                 if (isGoingUp)
                 {
-                    //print("limit up");
                     goingUpProbability--;
 
-                    if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
+                    if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && offsetOnX < ZHDistance.x)
                     {
                         goingLeftProbability++;
                     }
-                    if(CheckIfOnTheNav(Vector3.right * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
+                    if(CheckIfOnTheNav(Vector3.right * NavSampleDistance) && offsetOnX > ZHDistance.x)
                     {
                         goingRightProbability++;
                     }
-                    if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
+                    if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && offsetOnZ < ZHDistance.z)
                     {
                         goingDownProbability++;
                     }
                 }
                 else if (isGoingDown)
                 {
-                    //print("limit down");
                     goingDownProbability--;
 
-                    if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
+                    if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && offsetOnX < ZHDistance.x)
                     {
                         goingLeftProbability++;
                     }
-                    if (CheckIfOnTheNav(Vector3.right * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
+                    if (CheckIfOnTheNav(Vector3.right * NavSampleDistance) && offsetOnX > ZHDistance.x)
                     {
                         goingRightProbability++;
                     }
-                    if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
+                    if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && offsetOnZ > ZHDistance.z)
                     {
                         goingUpProbability++;
                     }
                 }
                 else if (isGoingLeft)
                 {
-                    //print("limit left");
                     goingLeftProbability--;
 
-                    if (CheckIfOnTheNav(Vector3.right * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
+                    if (CheckIfOnTheNav(Vector3.right * NavSampleDistance) && offsetOnX > ZHDistance.x)
                     {
                         goingRightProbability++;
                     }
-                    if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
+                    if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && offsetOnZ > ZHDistance.z)
                     {
                         goingUpProbability++;
                     }
-                    if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
+                    if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && offsetOnZ < ZHDistance.z)
                     {
                         goingDownProbability++;
                     }
                 }
                 else if (isGoingRight)
                 {
-                    //print("limit right");
                     goingRightProbability--;
 
-                    if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
+                    if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && offsetOnX < ZHDistance.x)
                     {
                         goingLeftProbability++;
                     }
-                    if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
+                    if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && offsetOnZ > ZHDistance.z)
                     {
                         goingUpProbability++;
                     }
-                    if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
+                    if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && offsetOnZ < ZHDistance.z)
                     {
                         goingDownProbability++;
                     }
@@ -299,7 +300,7 @@ public class Human : MonoBehaviour
 
         if (NavMesh.SamplePosition(runTo, out hit, NavSampleDistance, 1 << NavMesh.GetAreaFromName("Walkable")))
         {
-            if (Mathf.Abs(runTo.x) < RightBorder.position.x && Mathf.Abs(runTo.x) > LeftBorder.position.x && Mathf.Abs(runTo.z) < UpBorder.position.z && Mathf.Abs(runTo.z) > DownBorder.position.z)
+            if (runTo.x < RightBorder.position.x && runTo.x > LeftBorder.position.x && runTo.z < UpBorder.position.z && runTo.z > DownBorder.position.z)
             {
                 return true;
             }
@@ -312,27 +313,32 @@ public class Human : MonoBehaviour
     {
         if (goingLeftProbability == 0 && goingRightProbability == 0 && goingUpProbability == 0 && goingDownProbability == 0)
         {
-            if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
+            if (offsetOnX < offsetOnZ)
             {
-                goingLeftProbability++;
+                if (CheckIfOnTheNav(Vector3.left * NavSampleDistance) && offsetOnX < ZHDistance.x)
+                {
+                    goingLeftProbability++;
+                }
+                else if (CheckIfOnTheNav(Vector3.right * NavSampleDistance) && offsetOnX > ZHDistance.x)
+                {
+                    goingRightProbability++;
+                }
             }
-            else if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
+            else
             {
-                goingUpProbability++;
-            }
-            else if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && Mathf.Abs(offsetOnZ) < ZHDistance.z)
-            {
-                goingDownProbability++;
-            }
-            else if (CheckIfOnTheNav(Vector3.right * NavSampleDistance) && Mathf.Abs(offsetOnX) < ZHDistance.x)
-            {
-                goingRightProbability++;
+                if (CheckIfOnTheNav(Vector3.forward * NavSampleDistance) && offsetOnZ > ZHDistance.z)
+                {
+                    goingUpProbability++;
+                }
+                else if (CheckIfOnTheNav(Vector3.back * NavSampleDistance) && offsetOnZ < ZHDistance.z)
+                {
+                    goingDownProbability++;
+                }
             }
         }
 
         if (goingLeftProbability > 0)
         {
-            //print("left");
             isGoingRight = false;
             isGoingLeft = true;
             isGoingDown = false;
@@ -341,7 +347,6 @@ public class Human : MonoBehaviour
         }
         else if (goingRightProbability > 0)
         {
-            //print("right");
             isGoingRight = true;
             isGoingDown = false;
             isGoingLeft = false;
@@ -350,7 +355,6 @@ public class Human : MonoBehaviour
         }
         else if (goingDownProbability > 0)
         {
-            //print("down");
             isGoingDown = true;
             isGoingRight = false;
             isGoingLeft = false;
@@ -359,7 +363,6 @@ public class Human : MonoBehaviour
         }
         else if (goingUpProbability > 0)
         {
-            //print("up");
             isGoingUp = true;
             isGoingDown = false;
             isGoingRight = false;
@@ -528,6 +531,11 @@ public class Human : MonoBehaviour
         {
             renderer.material.color = Color.white;
         }
+    }
+
+    public void OrderToShowSpecialText(int numOfHumansThatBeingHit)
+    {
+        HumanCanves.ShowSpecialText(numOfHumansThatBeingHit);
     }
 
     private void OnDestroy()

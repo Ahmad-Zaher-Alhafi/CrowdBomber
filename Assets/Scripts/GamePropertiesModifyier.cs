@@ -19,7 +19,6 @@ public class GamePropertiesModifyier : MonoBehaviour
     public MainCanves MainCanves;
     public ProjectileThrower ProjectileThrower;
     public float CurrentMoneyValue;
-    public HumanCanves HumanCanvesStuff;
     public Transform HumanCanves;
     public int InitialNumOfHumansInLevel;
     public int MaxNumOfHumansInLevel;

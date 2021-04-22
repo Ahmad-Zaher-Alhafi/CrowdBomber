@@ -56,10 +56,10 @@ MonoBehaviour:
   ProjectilesNumber: 1
   MainCanves: {fileID: 0}
   ProjectileThrower: {fileID: 0}
-  CurrentMoneyValue: 500000
-  HumanCanvesStuff: {fileID: 3807297631013241019, guid: c120f571420d22e4097281af9d7c1c7b, type: 3}
+  CurrentMoneyValue: 1000
   HumanCanves: {fileID: 0}
   InitialNumOfHumansInLevel: 10
+  MaxNumOfHumansInLevel: 40
   HasToDeleteSaveFiles: 0
   CurrentNumOfHumansInLevel: 0
   InitialZombieRunningSpeed: 2.5
