@@ -9,15 +9,20 @@ public class MainCanves : MonoBehaviour
     public Slider StagesSlider;
     public TextMeshProUGUI StagesText;
     public TextMeshProUGUI MoneyTxt;
-
     public CanvesPowerUp AddHealthPowerUp;
     public CanvesPowerUp AddHumanPowerUp;
     public CanvesPowerUp AddProjectilePowerUp;
     public CanvesPowerUp AddRunSpeedPowerUp;
-    
+    public Sprite SoundOnSprite;
+    public Sprite SoundOffSprite;
+    public Image SoundButtonImg;
+    public GameObject SettingsPanel;
+
 
     private GamePropertiesModifyier gamePropertiesModifyier;
     private GameManager gameManager;
+    private AudioManager audioManager;
+
 
     [System.Serializable]
     public struct CanvesPowerUp
@@ -30,6 +35,7 @@ public class MainCanves : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         gameManager = FindObjectOfType<GameManager>();
         gamePropertiesModifyier = FindObjectOfType<GamePropertiesModifyier>();
     }
@@ -140,5 +146,31 @@ public class MainCanves : MonoBehaviour
         AddHealthPowerUp.PowerUpCostText.text = "$" + AddHealthPowerUp.PowerUpCost.ToString();
         AddRunSpeedPowerUp.PowerUpCostText.text = "$" + AddRunSpeedPowerUp.PowerUpCost.ToString();
         AddProjectilePowerUp.PowerUpCostText.text = "$" + AddProjectilePowerUp.PowerUpCost.ToString();
+    }
+
+    public void TurnOnOffSounds()
+    {
+        if (SoundButtonImg.sprite == SoundOnSprite)
+        {
+            audioManager.UpdateAudioMuteState(true);
+            SoundButtonImg.sprite = SoundOffSprite;
+        }
+        else
+        {
+            audioManager.UpdateAudioMuteState(false);
+            SoundButtonImg.sprite = SoundOnSprite;
+        }
+    }
+
+    public void ShowHideSettingsPanel()
+    {
+        if (SettingsPanel.activeInHierarchy)
+        {
+            SettingsPanel.SetActive(false);
+        }
+        else
+        {
+            SettingsPanel.SetActive(true);
+        }
     }
 }

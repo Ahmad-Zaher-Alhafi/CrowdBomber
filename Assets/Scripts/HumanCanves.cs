@@ -93,7 +93,7 @@ public class HumanCanves : MonoBehaviour
         if (hasToShowSpecialWord)
         {
             hasToShowSpecialWord = false;
-            moneyText.text = specialWords[numOfHumansThatBeingHit - 2];
+            moneyText.text = specialWords[Mathf.Clamp(numOfHumansThatBeingHit - 2, 0, specialWords.Length - 1)];
             moneyText.fontSize *= 1.3f;
         }
         else

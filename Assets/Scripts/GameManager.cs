@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -41,7 +42,6 @@ public class GameManager : MonoBehaviour
     public Image LoseWinPanel;
     public TextMeshProUGUI LoseWinTxt;
     public ProjectileThrower ProjectileThrower;
-    //public float PlashingPanelFadingSpeed;
 
     private Transform mainCamera;
     private int currentStageNumber;
@@ -51,9 +51,7 @@ public class GameManager : MonoBehaviour
     private WaitForSeconds delay;
     private int currentLevelNumber;
     private int oldStageNumber;
-    //private float loseWinPanelAlpha;
-    //private bool hasToShowFlashingPannel;
-    //private float initialLoseWinPanelAlphaValue;
+    private AudioManager audioManager;
 
 
     [System.Serializable]
@@ -68,6 +66,7 @@ public class GameManager : MonoBehaviour
         EventsManager.onZombieDeath += CheckLoseWinState;
         EventsManager.onProjectileDeactivate += CheckLoseWinState;
 
+        audioManager = FindObjectOfType<AudioManager>();
         mainCamera = Camera.main.transform;
         isItFirstTimeLaunch = true;
         delay = new WaitForSeconds(SecondstoStartNextStage);
@@ -134,7 +133,7 @@ public class GameManager : MonoBehaviour
             if (DeadZombies.Count > 0)
             {
                 Humans.Add(DeadZombies[0]);
-                DeadZombies[0].Reset(false);
+                DeadZombies[0].Reset();
                 DeadZombies[0].transform.position = gamePropertiesModifyier.GetRandomCreatPoint();
                 DeadZombies[0].gameObject.SetActive(true);
                 DeadZombies.Remove(DeadZombies[0]);
@@ -200,12 +199,12 @@ public class GameManager : MonoBehaviour
         IsStartingNextStage = true;
         yield return delay;
 
-        IsStartingNextStage = false;
-        LoseWinPanel.gameObject.SetActive(false);
         if (hasWon)
         {
             currentStageNumber++;
         }
+        IsStartingNextStage = false;
+        LoseWinPanel.gameObject.SetActive(false);
         
         if (currentStageNumber > MaxStagesNumInLevel)
         {
@@ -245,7 +244,19 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        LoseWinTxt.text = "Congrats!\n\nLevel Was Completed";
+        if (currentStageNumber == MaxStagesNumInLevel)
+        {
+            StartCoroutine(audioManager.SetMainMusicVolume(.5f,1.5f));
+            audioManager.PlayLevelWinSound();
+            LoseWinTxt.text = "Congrats!\n\nStage Was Completed";
+        }
+        else
+        {
+            StartCoroutine(audioManager.SetMainMusicVolume(.5f, 1.5f));
+            audioManager.PlayStageWinSound();
+            LoseWinTxt.text = "Congrats!\n\nLevel Was Completed";
+        }
+        
         LoseWinPanel.gameObject.SetActive(true);
         LoseWinTxt.gameObject.SetActive(true);
         StartCoroutine(StartNextStage(true));

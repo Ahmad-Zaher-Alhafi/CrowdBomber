@@ -21,6 +21,8 @@ public class Human : MonoBehaviour
     public Transform HealthSliderPoint;
     public Animator Animator;
     public HumanCanves HumanCanves;
+    public GameObject PoisonParticles;
+    public ParticleSystem NewSpawnParticles;
 
     [HideInInspector] public bool IsPoisened;
     [HideInInspector] public float Health;
@@ -65,12 +67,15 @@ public class Human : MonoBehaviour
     private Transform DownBorder;
     private HumanClothing humanClothing;
     private Collider humanCollider;
+    private AudioManager audioManager;
+
 
     void Start()
     {
         EventsManager.onZombieSpeedModifying += UpdateZombieRunningSpeed;
         EventsManager.onZombieHealthModifying += UpdateHealth;
 
+        audioManager = FindObjectOfType<AudioManager>();
         humanClothing = GetComponent<HumanClothing>();
         gamePropertiesModifyier = FindObjectOfType<GamePropertiesModifyier>();
         rig = GetComponent<Rigidbody>();
@@ -443,6 +448,8 @@ public class Human : MonoBehaviour
             renderer.material.color = PoisonedMaterial.color;
         }
 
+        Handheld.Vibrate();
+        audioManager.PlayPopSound();
         humanCollider.enabled = false;
         humanCollider.enabled = true;
         OrderToStopRunnigAway(zombieToRunFrom);
@@ -456,6 +463,7 @@ public class Human : MonoBehaviour
         Animator.Play(Constants.WalkduckedAnimationClipName);
         gameManager.Humans.Remove(this);
         gameManager.Zombies.Add(this);
+        PoisonParticles.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -522,8 +530,9 @@ public class Human : MonoBehaviour
         }
     }
 
-    public void Reset(bool isItNewLevel)
+    public void Reset()
     {
+        PoisonParticles.SetActive(false);
         humanClothing.CreateRandomclothing();
         InitializeParameters();
 
@@ -536,6 +545,11 @@ public class Human : MonoBehaviour
     public void OrderToShowSpecialText(int numOfHumansThatBeingHit)
     {
         HumanCanves.ShowSpecialText(numOfHumansThatBeingHit);
+    }
+
+    public void ShowNewSpawnParticles()
+    {
+        NewSpawnParticles.Play();
     }
 
     private void OnDestroy()

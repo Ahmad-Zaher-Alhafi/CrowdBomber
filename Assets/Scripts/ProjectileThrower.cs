@@ -32,9 +32,11 @@ public class ProjectileThrower : MonoBehaviour
     private Camera mainCamera;
     private float distance;
     private int projectilesNumber;
+    private AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         NumOfActiveProjectilesInScene = 0;
         projectilesNumber = GamePropertiesModifyier.ProjectilesNumber;
         initialCannonBaseEuralAngle = CannonBase.eulerAngles;
@@ -89,6 +91,7 @@ public class ProjectileThrower : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject == null && targetPosition != Vector3.positiveInfinity && !GameManager.IsStartingNextStage)
         {
+            audioManager.PlayCannonSound();
             NumOfActiveProjectilesInScene++;
             Rigidbody objectToThrowRig = GetProjectile();
             objectToThrowRig.useGravity = true;

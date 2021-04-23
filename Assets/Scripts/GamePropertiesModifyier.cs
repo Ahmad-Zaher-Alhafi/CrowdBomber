@@ -168,6 +168,7 @@ public class GamePropertiesModifyier : MonoBehaviour
         if (isItNew)
         {
             CurrentNumOfHumansInLevel++;
+            newHuman.ShowNewSpawnParticles();
         }
     }
 
@@ -301,7 +302,7 @@ public class GamePropertiesModifyier : MonoBehaviour
 
             foreach (Human human in GameManager.DeadZombies)
             {
-                human.Reset(true);
+                human.Reset();
             }
         }
         else
@@ -310,6 +311,7 @@ public class GamePropertiesModifyier : MonoBehaviour
         }
 
         UpdateProjectilesText();
+        currentLevelNumber = levelNumber;
         CurrentStageNumber = stageNumber;
         SetStageBorders(stageNumber);
         GameManager.SetCameraStagePos(stageNumber);
