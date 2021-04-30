@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ActivateLevel(levelNumber);
-        StartCoroutine(StartNextStage(false));
+        StartCoroutine(StartNextStage(false, 0));
     }
 
     /// <summary>
@@ -107,12 +107,12 @@ public class GameManager : MonoBehaviour
         mainCanves.UpdateLevelNameTxt(levels[levelNumber - 1].LevelName);
     }
 
-    public IEnumerator StartNextStage(bool hasWon)
+    public IEnumerator StartNextStage(bool hasWon, float timeToStartNextStage)
     {
         tower.UpdateActivationState(false);
         //IsStartingNextStage = true;
 
-        yield return delayBeforeStartStage;
+        yield return new WaitForSeconds(timeToStartNextStage);
 
         if (hasWon)
         {
@@ -160,14 +160,14 @@ public class GameManager : MonoBehaviour
             mainCanves.UpdateLoseWinPanel(true, true, true);
         }
         
-        StartCoroutine(StartNextStage(true));
+        StartCoroutine(StartNextStage(true, timeToStartNextStage));
     }
 
     public void Lose()
     {
         mainCanves.UpdateLoseWinPanel(true, false, false);
 
-        StartCoroutine(StartNextStage(false));
+        StartCoroutine(StartNextStage(false, timeToStartNextStage));
     }
 
     public void StartNextLevel()
