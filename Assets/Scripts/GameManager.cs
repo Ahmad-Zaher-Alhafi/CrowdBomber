@@ -9,50 +9,33 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [HideInInspector] public List<Human> Humans;
-    [HideInInspector] public List<Human> DeadZombies;
-    [HideInInspector] public List<Human> Zombies;
-    [HideInInspector] public bool IsStartingNextStage;
-    public int LevelNumber;
-    public int StageNumber;
-    public Transform RightBorderStage1;
-    public Transform LeftBorderStage1;
-    public Transform UpBorderStage1;
-    public Transform DownBorderStage1;
-    public Transform RightBorderStage2;
-    public Transform LeftBorderStage2;
-    public Transform UpBorderStage2;
-    public Transform DownBorderStage2;
-    public Transform RightBorderStage3;
-    public Transform LeftBorderStage3;
-    public Transform UpBorderStage3;
-    public Transform DownBorderStage3;
-    public GamePropertiesModifyier gamePropertiesModifyier;
-    public Vector3 CameraStage1Pos;
-    public Vector3 CameraStage2Pos;
-    public Vector3 CameraStage3Pos;
-    public NavMeshSurface NavMeshSurface;
-    public float CameraSmoothSpeed;
-    public int MaxStagesNumInLevel;
-    public MainCanves MainCanves;
-    public float SecondstoStartNextStage;
-    public Level[] Levels;
-    public TextMeshProUGUI LevelNameTxt;
-    public GameObject BottomPowerUpsPanel;
-    public Image LoseWinPanel;
-    public TextMeshProUGUI LoseWinTxt;
-    public ProjectileThrower ProjectileThrower;
+    //[HideInInspector] public bool IsStartingNextStage;
+    [Header("Check it if you want to delete the saved data")]
+    [SerializeField] private bool hasToDeleteSaveFiles;
+    [SerializeField] private Tower tower;
+    [SerializeField] private ProjectilesManager projectilesManager;
+    [SerializeField] private NavMeshSurface navMeshSurface;
+    [SerializeField] private HumansManager humansManager;
+    [SerializeField] private int maxStagesNumInLevel;
+    [SerializeField] private MainCanves mainCanves;
+    [SerializeField] private float timeToStartNextStage;
+    [SerializeField] private Level[] levels;
+    [SerializeField] private ProjectileThrower projectileThrower;
+    [SerializeField] private BordersManger bordersManager;
+    [SerializeField] private int levelNumber = 1;
+    [SerializeField] private int stageNumber = 1;
+    [SerializeField] private DataSaver dataSaver;
 
-    private Transform mainCamera;
-    private int currentStageNumber;
-    private bool hasToUpdateCameraPos;
-    private Vector3 cameraPosToGoTo;
-    private bool isItFirstTimeLaunch;//if the player launched the game for the first time after closing it
-    private WaitForSeconds delay;
-    private int currentLevelNumber;
+    public int StageNumber
+    {
+        get => stageNumber;
+        private set => stageNumber = value;
+    }
+    public int MaxStagesNumInLevel => maxStagesNumInLevel;
+
+    private WaitForSeconds delayBeforeStartStage;
     private int oldStageNumber;
     private AudioManager audioManager;
-
 
     [System.Serializable]
     public class Level
@@ -63,180 +46,100 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        EventsManager.onZombieDeath += CheckLoseWinState;
+        if (hasToDeleteSaveFiles)
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
+        EventsManager.onHumanDeath += CheckLoseWinState;
         EventsManager.onProjectileDeactivate += CheckLoseWinState;
 
+        if (PlayerPrefsManager.CheckForDataName(Constants.DataNames.LevelNumber.ToString()))
+        {
+            levelNumber = (int)PlayerPrefsManager.LoadFloat(Constants.DataNames.LevelNumber.ToString());
+        }
+
+        if (PlayerPrefsManager.CheckForDataName(Constants.DataNames.StageNumber.ToString()))
+        {
+            StageNumber = (int)PlayerPrefsManager.LoadFloat(Constants.DataNames.StageNumber.ToString());
+        }
+        
         audioManager = FindObjectOfType<AudioManager>();
-        mainCamera = Camera.main.transform;
-        isItFirstTimeLaunch = true;
-        delay = new WaitForSeconds(SecondstoStartNextStage);
+
+        bordersManager.SetBordersActivation(StageNumber);
+        
+        delayBeforeStartStage = new WaitForSeconds(timeToStartNextStage);
         oldStageNumber = 0;
     }
 
-    private void Update()
+    private void Start()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)) && EventSystem.current.currentSelectedGameObject == null)
-        {
-            BottomPowerUpsPanel.SetActive(false);
-        }
-
-        if (hasToUpdateCameraPos)
-        {
-            if (Vector3.Distance(mainCamera.position, cameraPosToGoTo) > .1f)
-            {
-                mainCamera.position = Vector3.Lerp(mainCamera.position, cameraPosToGoTo, CameraSmoothSpeed * Time.deltaTime);
-            }
-            else
-            {
-                ProjectileThrower.gameObject.SetActive(true);
-                hasToUpdateCameraPos = false;
-                if (currentStageNumber != oldStageNumber)
-                {
-                    oldStageNumber = currentStageNumber;
-                    NavMeshSurface.BuildNavMesh();//build the navmesh after we changed the stage borders
-                }
-                BottomPowerUpsPanel.SetActive(true);
-
-                if (isItFirstTimeLaunch)
-                {
-                    gamePropertiesModifyier.CreateNeededHumans();
-                    isItFirstTimeLaunch = false;
-                }
-                else
-                {
-                    ResetHumans();
-                }
-            }
-        }
+        ActivateLevel(levelNumber);
+        StartCoroutine(StartNextStage(false));
     }
 
-
-    public void ActivateLevel(int LevelNumber)
+    /// <summary>
+    /// this function will be called by the camera when it finishes updating it's position
+    /// </summary>
+    public void OnCameraPositionUpdated()
     {
-        foreach (Level level in Levels)
+        tower.UpdateActivationState(true);
+
+        //build the navmesh after we changed the stage borders if the stage changed
+        if (StageNumber != oldStageNumber)
+        {
+            oldStageNumber = StageNumber;
+            navMeshSurface.BuildNavMesh();
+        }
+
+        mainCanves.UpdatePropertiesPanelActivationState(true);
+        humansManager.CreateNeededHumans();
+    }
+
+    public void ActivateLevel(int levelNumber)
+    {
+        foreach (Level level in levels)
         {
             level.LevelObject.SetActive(false);
         }
 
-        currentLevelNumber = LevelNumber;
-        Levels[LevelNumber - 1].LevelObject.SetActive(true);
-        LevelNameTxt.text = Levels[LevelNumber - 1].LevelName;
-    }
-
-    /// <summary>
-    /// active the humans again after they being disabled in the previous stage
-    /// </summary>
-    private void ResetHumans()
-    {
-        while (Humans.Count < gamePropertiesModifyier.CurrentNumOfHumansInLevel)
-        {
-            if (DeadZombies.Count > 0)
-            {
-                Humans.Add(DeadZombies[0]);
-                DeadZombies[0].Reset();
-                DeadZombies[0].transform.position = gamePropertiesModifyier.GetRandomCreatPoint();
-                DeadZombies[0].gameObject.SetActive(true);
-                DeadZombies.Remove(DeadZombies[0]);
-            }
-            else
-            {
-                return;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Change the camera position on y and z axis according to the stage number
-    /// </summary>
-    public void SetCameraStagePos(int stageNumber)
-    {
-        ProjectileThrower.gameObject.SetActive(false);
-        currentStageNumber = stageNumber;
-
-        if (stageNumber == 1)
-        {
-            cameraPosToGoTo = new Vector3(mainCamera.position.x, CameraStage1Pos.y, CameraStage1Pos.z);
-            SetBordersActivation(true, false, false);
-        }
-        else if (stageNumber == 2)
-        {
-            cameraPosToGoTo = new Vector3(mainCamera.position.x, CameraStage2Pos.y, CameraStage2Pos.z);
-            SetBordersActivation(false, true, false);
-        }
-        else if (stageNumber == 3)
-        {
-            cameraPosToGoTo = new Vector3(mainCamera.position.x, CameraStage3Pos.y, CameraStage3Pos.z);
-            SetBordersActivation(false, false, true);
-        }
-
-        hasToUpdateCameraPos = true;
-    }
-
-    /// <summary>
-    /// To actiavate or deactivate the borders according to the current stage
-    /// </summary>
-    /// <param name="stage1">true to activate first stage borders else false</param>
-    /// <param name="stage2">true to activate second stage borders else false</param>
-    /// <param name="stage3">true to activate third stage borders else false</param>
-    private void SetBordersActivation(bool stage1, bool stage2, bool stage3)
-    {
-        RightBorderStage1.gameObject.SetActive(stage1);
-        LeftBorderStage1.gameObject.SetActive(stage1);
-        UpBorderStage1.gameObject.SetActive(stage1);
-        DownBorderStage1.gameObject.SetActive(stage1);
-        RightBorderStage2.gameObject.SetActive(stage2);
-        LeftBorderStage2.gameObject.SetActive(stage2);
-        UpBorderStage2.gameObject.SetActive(stage2);
-        DownBorderStage2.gameObject.SetActive(stage2);
-        RightBorderStage3.gameObject.SetActive(stage3);
-        LeftBorderStage3.gameObject.SetActive(stage3);
-        UpBorderStage3.gameObject.SetActive(stage3);
-        DownBorderStage3.gameObject.SetActive(stage3);
+        levels[levelNumber - 1].LevelObject.SetActive(true);
+        mainCanves.UpdateLevelNameTxt(levels[levelNumber - 1].LevelName);
     }
 
     public IEnumerator StartNextStage(bool hasWon)
     {
-        IsStartingNextStage = true;
-        yield return delay;
+        tower.UpdateActivationState(false);
+        //IsStartingNextStage = true;
+
+        yield return delayBeforeStartStage;
 
         if (hasWon)
         {
-            currentStageNumber++;
-        }
-        IsStartingNextStage = false;
-        LoseWinPanel.gameObject.SetActive(false);
-        
-        if (currentStageNumber > MaxStagesNumInLevel)
-        {
-            Levels[currentLevelNumber - 1].LevelObject.SetActive(false);
-            currentLevelNumber++;
+            StageNumber++;
 
-            if (currentLevelNumber > Levels.Length)
+            if (StageNumber > MaxStagesNumInLevel)
             {
-                currentLevelNumber = 1;
+                StartNextLevel();
+                StageNumber = 1;
             }
 
-            Levels[currentLevelNumber - 1].LevelObject.SetActive(true);
-            LevelNameTxt.text = Levels[currentLevelNumber - 1].LevelName;
-
-            currentStageNumber = 1;
-            gamePropertiesModifyier.PrepareNextStage(true, currentStageNumber, currentLevelNumber);
-        }
-        else
-        {
-            gamePropertiesModifyier.PrepareNextStage(false, currentStageNumber, currentLevelNumber);
+            dataSaver.AddDataToBeSaved(Constants.DataNames.StageNumber, StageNumber);
         }
 
-        MainCanves.UpdateStageSlider(currentStageNumber);
+        //IsStartingNextStage = false;
+        mainCanves.UpdateLoseWinPanel(false, false, false);
+        EventsManager.OnStageStart(StageNumber);
+        mainCanves.UpdateStageSlider(StageNumber);
     }
 
     public void CheckLoseWinState()
     {
-        if (Humans.Count == 0 && Zombies.Count == 0)
+        if (humansManager.GetListCount(Constants.ListsNames.Humans) == 0 && humansManager.GetListCount(Constants.ListsNames.PosionedHumans) == 0)
         {
             Win();
         }
-        else if (gamePropertiesModifyier.ProjectilesNumber <= 0 && Zombies.Count == 0 && ProjectileThrower.NumOfActiveProjectilesInScene == 0)
+        else if (projectileThrower.ProjectilesNumber <= 0 && humansManager.GetListCount(Constants.ListsNames.PosionedHumans) == 0 && projectilesManager.NumOfActiveProjectilesInScene == 0)
         {
             Lose();
         }
@@ -244,35 +147,48 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        if (currentStageNumber == MaxStagesNumInLevel)
+        if (StageNumber == MaxStagesNumInLevel)
         {
             StartCoroutine(audioManager.SetMainMusicVolume(.5f,1.5f));
             audioManager.PlayLevelWinSound();
-            LoseWinTxt.text = "Congrats!\n\nStage Was Completed";
+            mainCanves.UpdateLoseWinPanel(true, true, false);
         }
         else
         {
             StartCoroutine(audioManager.SetMainMusicVolume(.5f, 1.5f));
             audioManager.PlayStageWinSound();
-            LoseWinTxt.text = "Congrats!\n\nLevel Was Completed";
+            mainCanves.UpdateLoseWinPanel(true, true, true);
         }
         
-        LoseWinPanel.gameObject.SetActive(true);
-        LoseWinTxt.gameObject.SetActive(true);
         StartCoroutine(StartNextStage(true));
     }
 
     public void Lose()
     {
-        LoseWinTxt.text = "You Lose!\n\nTry Again";
-        LoseWinPanel.gameObject.SetActive(true);
-        LoseWinTxt.gameObject.SetActive(true);
+        mainCanves.UpdateLoseWinPanel(true, false, false);
+
         StartCoroutine(StartNextStage(false));
+    }
+
+    public void StartNextLevel()
+    {
+        levels[levelNumber - 1].LevelObject.SetActive(false);
+        levelNumber++;
+
+        if (levelNumber > levels.Length)
+        {
+            levelNumber = 1;
+        }
+
+        levels[levelNumber - 1].LevelObject.SetActive(true);
+        mainCanves.UpdateLevelNameTxt(levels[levelNumber - 1].LevelName);
+        dataSaver.AddDataToBeSaved(Constants.DataNames.LevelNumber, levelNumber);
+        EventsManager.OnLevelStart();
     }
 
     private void OnDestroy()
     {
-        EventsManager.onZombieDeath -= CheckLoseWinState;
+        EventsManager.onHumanDeath -= CheckLoseWinState;
         EventsManager.onProjectileDeactivate -= CheckLoseWinState;
     }
 }

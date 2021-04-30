@@ -43,42 +43,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc4cf9d37b39b8408f8b21609636d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Humans: []
-  DeadZombies: []
-  Zombies: []
-  IsStartingNextStage: 0
-  LevelNumber: 1
-  StageNumber: 1
-  RightBorderStage1: {fileID: 0}
-  LeftBorderStage1: {fileID: 0}
-  UpBorderStage1: {fileID: 0}
-  DownBorderStage1: {fileID: 0}
-  RightBorderStage2: {fileID: 0}
-  LeftBorderStage2: {fileID: 0}
-  UpBorderStage2: {fileID: 0}
-  DownBorderStage2: {fileID: 0}
-  RightBorderStage3: {fileID: 0}
-  LeftBorderStage3: {fileID: 0}
-  UpBorderStage3: {fileID: 0}
-  DownBorderStage3: {fileID: 0}
-  gamePropertiesModifyier: {fileID: 0}
-  CameraStage1Pos: {x: 0, y: 15, z: 64}
-  CameraStage2Pos: {x: 0, y: 25, z: 55}
-  CameraStage3Pos: {x: 0, y: 35, z: 46}
-  NavMeshSurface: {fileID: 0}
-  CameraSmoothSpeed: 3
-  MaxStagesNumInLevel: 3
-  MainCanves: {fileID: 0}
-  SecondstoStartNextStage: 2
-  Levels:
+  hasToDeleteSaveFiles: 0
+  tower: {fileID: 0}
+  projectilesManager: {fileID: 0}
+  navMeshSurface: {fileID: 0}
+  humansManager: {fileID: 0}
+  maxStagesNumInLevel: 3
+  mainCanves: {fileID: 0}
+  timeToStartNextStage: 3
+  levels:
   - LevelObject: {fileID: 0}
     LevelName: City Center
   - LevelObject: {fileID: 0}
-    LevelName: Cutoff Road
+    LevelName: CutOff Road
   - LevelObject: {fileID: 0}
-    LevelName: Camping Travel
-  LevelNameTxt: {fileID: 0}
-  BottomPowerUpsPanel: {fileID: 0}
-  LoseWinPanel: {fileID: 0}
-  LoseWinTxt: {fileID: 0}
-  ProjectileThrower: {fileID: 0}
+    LevelName: Camping Trip
+  projectileThrower: {fileID: 0}
+  bordersManager: {fileID: 0}
+  levelNumber: 1
+  stageNumber: 1
+  dataSaver: {fileID: 0}

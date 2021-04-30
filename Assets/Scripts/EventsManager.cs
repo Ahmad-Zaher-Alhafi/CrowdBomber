@@ -5,30 +5,54 @@ using UnityEngine;
 
 public static class EventsManager
 {
-    public static Action<bool, float> onZombieSpeedModifying;
-    public static Action<bool, float> onZombieHealthModifying;
-    public static Action onZombieDeath;
+    public static Action<float, bool> onRunAfterSpeedUpdate;
+    public static Action<float, bool> onHealthPropertieUpdate;
+    public static Action<int, bool> onProjectilesNumPropertieUpdate;
+    public static Action<bool> onHumansNumPropertieUpdate;
+    public static Action<int> onStageStart;
+    public static Action onLevelStart;
+    public static Action onHumanDeath;
     public static Action onProjectileDeactivate;
 
 
 
-    public static void OnZombieRunningSpeedModifying(bool hasToResetSpeed, float newSpeed)
+    public static void OnRunAfterSpeedUpdate(float newSpeed, bool hasToReset)
     {
-        onZombieSpeedModifying?.Invoke(hasToResetSpeed, newSpeed);
+        onRunAfterSpeedUpdate?.Invoke(newSpeed, hasToReset);
     }
 
-    public static void OnZombieHealthModifying(bool hasToResetSpeed, float newHealth)
+    public static void OnHealthPropertieUpdate(float newHealth, bool hasToReset)
     {
-        onZombieHealthModifying?.Invoke(hasToResetSpeed, newHealth);
+        onHealthPropertieUpdate?.Invoke(newHealth, hasToReset);
     }
 
-    public static void OnZombieDeath()
+    public static void OnProjectilesNumPropertieUpdate(int newProjectilesNumber, bool hasToReset)
     {
-        onZombieDeath?.Invoke();
+        onProjectilesNumPropertieUpdate?.Invoke(newProjectilesNumber, hasToReset);
+    }
+    public static void OnHumansNumPropertieUpdate(bool hasToReset)
+    {
+        onHumansNumPropertieUpdate?.Invoke(hasToReset);
+    }
+
+    public static void OnHumanDeath()
+    {
+        onHumanDeath?.Invoke();
     }
 
     public static void OnProjectileDeactivate()
     {
         onProjectileDeactivate?.Invoke();
     }
+
+    public static void OnStageStart(int stageNumber)
+    {
+        onStageStart?.Invoke(stageNumber);
+    }
+
+    public static void OnLevelStart()
+    {
+        onLevelStart?.Invoke();
+    }
+
 }

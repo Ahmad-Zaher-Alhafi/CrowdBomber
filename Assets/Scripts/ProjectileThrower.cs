@@ -9,131 +9,134 @@ public class ProjectileThrower : MonoBehaviour
     //To understand this code more watch this video https://www.youtube.com/watch?v=IvT8hjy6q4o
     //Read this article for better understanding about how to use rayscast to get the mouse position in the world https://gamedevbeginner.com/how-to-convert-the-mouse-position-to-world-space-in-unity-2d-3d/#screen_to_world_3d
     //this code is using the Kinematic Equations
+    [SerializeField] private CannonCanves cannonCanves;
+    [SerializeField] private ProjectilesManager projectilesManager;
+    [SerializeField] private InputHandler inputHandler;
+    [SerializeField] private PropertiesManager propertiesManager;
+    [SerializeField] private Transform projectilePrefab;
+    [SerializeField] private Transform shootingFromPoint;
+    //this height can be changed according to your needs
+    [SerializeField] private float height = 5;
+    //gravity can be changed also according to what you need
+    [SerializeField] private float gravity = -18;
+    [SerializeField] private Transform projectilesParent;
+    private int initialProjectilesNumber;
 
-    public GamePropertiesModifyier GamePropertiesModifyier;
-    public Transform ProjectilePrefab;
-    public Transform ShootingFromPoint;
-    public float Height = 5;//this height can be changed according to your needs
-    public float Gravity = -18;//gravity can be changed also according to what you need
-    public Transform TargetSign;
-    public Transform Cannon;
-    public Transform CannonBase;
-    public Transform ProjectilesParent;
-    public int InitialProjectilesNumber;
-    public GameManager GameManager;
-    [HideInInspector] public int NumOfActiveProjectilesInScene;//number of the projectiles that are in the scene currently
-    [HideInInspector] public Queue<Rigidbody> Projectiles = new Queue<Rigidbody>();
+    //[SerializeField] private GameManager gameManager;
+    //number of the projectiles that are in the scene currently
 
-    private Vector3 initialCannonBaseEuralAngle;
-    private Vector3 initialCannonEuralAngle;
-    private Vector3 targetPosition = Vector3.positiveInfinity;
-    private Plane plane;
-    private Ray ray;
-    private Camera mainCamera;
-    private float distance;
     private int projectilesNumber;
+    public int ProjectilesNumber
+    {
+        get => projectilesNumber;
+        private set => projectilesNumber = value;
+    }
+
+
+    private Queue<Rigidbody> projectiles = new Queue<Rigidbody>();
+    private Vector3 targetPosition = Vector3.positiveInfinity;
     private AudioManager audioManager;
 
     void Start()
     {
+        EventsManager.onProjectilesNumPropertieUpdate += UpdateProjectilesNumber;
+        EventsManager.onStageStart += ResetFroNextStage;
+
         audioManager = FindObjectOfType<AudioManager>();
-        NumOfActiveProjectilesInScene = 0;
-        projectilesNumber = GamePropertiesModifyier.ProjectilesNumber;
-        initialCannonBaseEuralAngle = CannonBase.eulerAngles;
-        initialCannonEuralAngle = Cannon.eulerAngles;
-        mainCamera = Camera.main;
-        plane = new Plane(Vector3.up, 0);//creat a virtual infinent plane
-        Physics.gravity = Vector3.up * Gravity;//this line will change the phsyics gravity accorsing to your code gravity
+        ProjectilesNumber = (int)propertiesManager.GetPropertieValue(Constants.PropertiesTypes.ProjectilesNum);
+        initialProjectilesNumber = ProjectilesNumber;
+        //this line will change the phsyics gravity accorsing to your code gravity
+        Physics.gravity = Vector3.up * gravity;
     }
 
-    void Update()
+    public void OrderToLaunchProjectile(Vector3 targetPosition)
     {
-        GetMousePosition();
-        LaunchProjectile();
+        if (targetPosition != Vector3.positiveInfinity /*&& !GameManager.IsStartingNextStage*/)
+        {
+            this.targetPosition = targetPosition;
+            audioManager.PlayCannonSound();
+            projectilesManager.UpdateActiveProjectilesNumberInScene(1);
+            LaunchProjectile();
+            ProjectilesNumber--;
+            //reset the position variable
+            this.targetPosition = Vector3.positiveInfinity;
+            cannonCanves.UpdateProjectilesNumTxt(ProjectilesNumber);
+        }
+    }
+
+    public void LaunchProjectile()
+    {
+        Rigidbody objectToThrowRig = GetProjectile();
+        objectToThrowRig.useGravity = true;
+        objectToThrowRig.velocity = CalculateLaunchVelocity(objectToThrowRig.transform);
     }
 
     private Vector3 CalculateLaunchVelocity(Transform ProjectileToLaunch)
     {
-        float displacementY = targetPosition.y - ProjectileToLaunch.position.y;//the displacement on y axis is the distince between the ball y position and the target y position
-        Vector3 displacementXZ = new Vector3(targetPosition.x - ProjectileToLaunch.position.x, 0, targetPosition.z - ProjectileToLaunch.position.z);//same for displacements on x and z axises
-
-        Vector3 velocityXZ = displacementXZ / (Mathf.Sqrt(-2 * Height / Gravity) + Mathf.Sqrt(2 * (displacementY - Height) / Gravity));//the start velocity on x and z axis can be calculated using the Kinematic Equations
-        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * Gravity * Height);//same thing for velocity on y axis
-
-        return velocityXZ + velocityY;//the result of the start velocity on 3 axises
+        //the displacement on y axis is the distince between the ball y position and the target y position
+        float displacementY = targetPosition.y - ProjectileToLaunch.position.y;
+        //same for displacements on x and z axises
+        Vector3 displacementXZ = new Vector3(targetPosition.x - ProjectileToLaunch.position.x, 0, targetPosition.z - ProjectileToLaunch.position.z);
+        //the start velocity on x and z axis can be calculated using the Kinematic Equations
+        Vector3 velocityXZ = displacementXZ / (Mathf.Sqrt(-2 * height / gravity) + Mathf.Sqrt(2 * (displacementY - height) / gravity));
+        //same thing for velocity on y axis
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * height);
+        //the result of the start velocity on 3 axises
+        return velocityXZ + velocityY;
     }
-
-    private void GetMousePosition()
-    {
-        if (Input.GetMouseButton(0) && EventSystem.current.currentSelectedGameObject == null && !GameManager.IsStartingNextStage)
-        {
-            ray = mainCamera.ScreenPointToRay(Input.mousePosition);//shot a ray from screen mouse position
-            if (plane.Raycast(ray, out distance))//if that ray hit the virtual plane store the distance between the camera and the hit postion on the plane
-            {
-                targetPosition = ray.GetPoint(distance);//get the point in world position where the ray and virtual plane were collided and asssgine it to the target position
-                TargetSign.gameObject.SetActive(true);
-                TargetSign.position = new Vector3(targetPosition.x, TargetSign.position.y, targetPosition.z);
-                Cannon.LookAt(targetPosition);
-                Cannon.eulerAngles = new Vector3(Cannon.eulerAngles.x, CannonBase.eulerAngles.y, initialCannonEuralAngle.z);//aplly constraints on the cannon rotaion 
-                CannonBase.LookAt(targetPosition);
-                CannonBase.eulerAngles = new Vector3(initialCannonBaseEuralAngle.x, CannonBase.eulerAngles.y, initialCannonBaseEuralAngle.z);//aplly constraints on the cannon base rotaion 
-            }
-        }
-    }
-
-    private void LaunchProjectile()
-    {
-        if (projectilesNumber <= 0)
-        {
-            TargetSign.gameObject.SetActive(false);
-            return;
-        }
-
-        if (Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject == null && targetPosition != Vector3.positiveInfinity && !GameManager.IsStartingNextStage)
-        {
-            audioManager.PlayCannonSound();
-            NumOfActiveProjectilesInScene++;
-            Rigidbody objectToThrowRig = GetProjectile();
-            objectToThrowRig.useGravity = true;
-            objectToThrowRig.velocity = CalculateLaunchVelocity(objectToThrowRig.transform);
-            targetPosition = Vector3.positiveInfinity;//reset the position variable
-            TargetSign.gameObject.SetActive(false);
-            projectilesNumber--;
-            GamePropertiesModifyier.UpdateProjectilesNumber(false,false, -1);
-        }
-    }
-
     private Rigidbody GetProjectile()
     {
-        if (Projectiles.Count > 0)
+        if (projectiles.Count > 0)
         {
-            return ResetUsedProjectile(Projectiles.Dequeue());
+            return ResetUsedProjectile(DequeueProjectile());
         }
         else
         {
-            Rigidbody projectile = Instantiate(ProjectilePrefab, ShootingFromPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-            projectile.transform.parent = ProjectilesParent;
+            Rigidbody projectile = Instantiate(projectilePrefab, shootingFromPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            projectile.transform.parent = projectilesParent;
             return projectile;
         }
     }
 
     private Rigidbody ResetUsedProjectile(Rigidbody usedProjectile)
     {
-        usedProjectile.transform.position = ShootingFromPoint.position;
+        usedProjectile.transform.position = shootingFromPoint.position;
         usedProjectile.useGravity = false;
         usedProjectile.gameObject.SetActive(true);
         return usedProjectile;
     }
 
-    public void UpdateProjectilesNumber(bool hasToReset, int projectilesNumber = 1)
+    public void EnqueueProjectile(Rigidbody projectileRig)
+    {
+        projectiles.Enqueue(projectileRig);
+    }
+
+    public Rigidbody DequeueProjectile()
+    {
+        return projectiles.Dequeue();
+    }
+
+    private void UpdateProjectilesNumber(int newProjectilesNumber, bool hasToReset)
     {
         if (hasToReset)
         {
-            this.projectilesNumber = InitialProjectilesNumber;
+            ProjectilesNumber = initialProjectilesNumber;
         }
         else
         {
-            this.projectilesNumber = projectilesNumber;
+            ProjectilesNumber = newProjectilesNumber;
         }
+        
+        cannonCanves.UpdateProjectilesNumTxt(ProjectilesNumber);
+    }
+
+    public void ResetFroNextStage(int ignore)
+    {
+        UpdateProjectilesNumber((int)propertiesManager.GetPropertieValue(Constants.PropertiesTypes.ProjectilesNum), false);
+    }
+
+    private void OnDestroy()
+    {
+        EventsManager.onProjectilesNumPropertieUpdate += UpdateProjectilesNumber;
     }
 }

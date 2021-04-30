@@ -6,171 +6,183 @@ using UnityEngine.UI;
 
 public class MainCanves : MonoBehaviour
 {
-    public Slider StagesSlider;
-    public TextMeshProUGUI StagesText;
-    public TextMeshProUGUI MoneyTxt;
-    public CanvesPowerUp AddHealthPowerUp;
-    public CanvesPowerUp AddHumanPowerUp;
-    public CanvesPowerUp AddProjectilePowerUp;
-    public CanvesPowerUp AddRunSpeedPowerUp;
-    public Sprite SoundOnSprite;
-    public Sprite SoundOffSprite;
-    public Image SoundButtonImg;
-    public GameObject SettingsPanel;
-
-
-    private GamePropertiesModifyier gamePropertiesModifyier;
-    private GameManager gameManager;
-    private AudioManager audioManager;
-
-
-    [System.Serializable]
-    public struct CanvesPowerUp
-    {
-        public TextMeshProUGUI PowerUpCostText;
-        public float PowerUpCost;
-        public float PowerUpCostIncreaseValue;
-        public float InitialPowerUpcost;
-    }
+    [SerializeField] private Slider stagesSlider;
+    [SerializeField] private TextMeshProUGUI stagesNumTxt;
+    [SerializeField] private TextMeshProUGUI moneyTxt;
+    [SerializeField] private Sprite soundOnSprite;
+    [SerializeField] private Sprite soundOffSprite;
+    [SerializeField] private Image soundButtonImg;
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private TextMeshProUGUI healthPropertieCostTxt;
+    [SerializeField] private TextMeshProUGUI humansNumPropertieCostTxt;
+    [SerializeField] private TextMeshProUGUI projectilesNumPropertieCostTxt;
+    [SerializeField] private TextMeshProUGUI runAfterSpeedPropertieCostTxt;
+    [SerializeField] private GameObject propertiesPanel;
+    [SerializeField] private Image LoseWinPanel;
+    [SerializeField] private TextMeshProUGUI LoseWinTxt;
+    [SerializeField] private TextMeshProUGUI LevelNameTxt;
+    [SerializeField] private MoneyManager moneyManager;
+    [SerializeField] private PropertiesManager propertiesManager;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioManager audioManager;
 
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
         gameManager = FindObjectOfType<GameManager>();
-        gamePropertiesModifyier = FindObjectOfType<GamePropertiesModifyier>();
     }
 
     void Start()
     {
-        StagesSlider.maxValue = gameManager.MaxStagesNumInLevel;
-        StagesSlider.minValue = 1;
-        UpdatePowerUpsCostsTxts();
+        EventsManager.onLevelStart += ResetForNewLevel;
+
+        stagesSlider.maxValue = gameManager.MaxStagesNumInLevel;
+        stagesSlider.minValue = 1;
+        //UpdateStageSlider(gameManager.StageNumber);
+
+        UpdateProperiteCostTxt(Constants.PropertiesTypes.RunAfterSpeed);
+        UpdateProperiteCostTxt(Constants.PropertiesTypes.HumansNum);
+        UpdateProperiteCostTxt(Constants.PropertiesTypes.Health);
+        UpdateProperiteCostTxt(Constants.PropertiesTypes.ProjectilesNum);
     }
 
-    public void AddZombieRunningSpeed()
+    public void AddRunAfterSpeed()
     {
-        if (gamePropertiesModifyier.CurrentMoneyValue >= AddRunSpeedPowerUp.PowerUpCost)
+        if (propertiesManager.TryUpdateRunAfterPropertie())
         {
-            gamePropertiesModifyier.UpdateZombieRunningSpeed(false);
-            gamePropertiesModifyier.UpdateMoneyValue(-AddRunSpeedPowerUp.PowerUpCost);
-            AddRunSpeedPowerUp.PowerUpCost *= AddRunSpeedPowerUp.PowerUpCostIncreaseValue;
-            UpdatePowerUpsCostsTxts();
-            UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
-            gamePropertiesModifyier.UpdateAddRunSpeedCost(AddRunSpeedPowerUp.PowerUpCost);
-        }
+            UpdateProperiteCostTxt(Constants.PropertiesTypes.RunAfterSpeed);
+        } 
     }
 
     public void AddHuman()
     {
-        if (gamePropertiesModifyier.CurrentNumOfHumansInLevel >= gamePropertiesModifyier.MaxNumOfHumansInLevel)
+        if (propertiesManager.TryUpdateHumansNumPropertie())
         {
-            return;
-        }
-
-        if (gamePropertiesModifyier.CurrentMoneyValue >= AddHumanPowerUp.PowerUpCost)
-        {
-            gamePropertiesModifyier.CreateHuman(true);
-            gamePropertiesModifyier.UpdateMoneyValue(-AddHumanPowerUp.PowerUpCost);
-            AddHumanPowerUp.PowerUpCost *= AddHumanPowerUp.PowerUpCostIncreaseValue;
-            UpdatePowerUpsCostsTxts();
-            UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
-            gamePropertiesModifyier.UpdateAddHumanCost(AddHumanPowerUp.PowerUpCost);
+            UpdateProperiteCostTxt(Constants.PropertiesTypes.HumansNum);
         }
     }
 
-    public void IncreaseHealth()
+    public void AddHealth()
     {
-        if (gamePropertiesModifyier.CurrentMoneyValue >= AddHealthPowerUp.PowerUpCost)
+        if (propertiesManager.TryUpdateHealthPropertie())
         {
-            gamePropertiesModifyier.UpdateZombieHealth(false);
-            gamePropertiesModifyier.UpdateMoneyValue(-AddHealthPowerUp.PowerUpCost);
-            AddHealthPowerUp.PowerUpCost *= AddHealthPowerUp.PowerUpCostIncreaseValue;
-            UpdatePowerUpsCostsTxts();
-            UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
-            gamePropertiesModifyier.UpdateAddHealthCost(AddHealthPowerUp.PowerUpCost);
+            UpdateProperiteCostTxt(Constants.PropertiesTypes.Health);
         }
     }
 
     public void AddProjectile()
     {
-        if (gamePropertiesModifyier.CurrentMoneyValue >= AddProjectilePowerUp.PowerUpCost)
+        if (propertiesManager.TryUpdateProjectilesNumPropertie())
         {
-            gamePropertiesModifyier.UpdateProjectilesNumber(false, false, 1);
-            gamePropertiesModifyier.UpdateMoneyValue(-AddProjectilePowerUp.PowerUpCost);
-            AddProjectilePowerUp.PowerUpCost *= AddProjectilePowerUp.PowerUpCostIncreaseValue;
-            UpdatePowerUpsCostsTxts();
-            UpdateMoneyTxt(gamePropertiesModifyier.CurrentMoneyValue);
-            gamePropertiesModifyier.UpdateAddProjectileCost(AddProjectilePowerUp.PowerUpCost);
+            UpdateProperiteCostTxt(Constants.PropertiesTypes.ProjectilesNum);
         }
     }
 
     public void UpdateStageSlider(int StageNum)
     {
-        StagesSlider.value = StageNum;
-        StagesText.text = "Stage " + StageNum + "/" + gameManager.MaxStagesNumInLevel;
+        stagesSlider.value = StageNum;
+        stagesNumTxt.text = "Stage " + StageNum + "/" + gameManager.MaxStagesNumInLevel;
     }
 
-    public void UpdateMoneyTxt(float moneyValue)
+    public void UpdateMoneyTxt(float newMoneyAmount)
     {
-        MoneyTxt.text = "$" + moneyValue.ToString();
+        moneyTxt.text = "$" + newMoneyAmount.ToString();
     }
 
-    public void UpdatePowerUpsCosts(bool isItNewLevel)
+    public void UpdateProperiteCostTxt(Constants.PropertiesTypes propertieType)
     {
-        if (isItNewLevel)
+        switch (propertieType)
         {
-            AddHumanPowerUp.PowerUpCost = AddHumanPowerUp.InitialPowerUpcost;
-            AddHealthPowerUp.PowerUpCost = AddHealthPowerUp.InitialPowerUpcost;
-            AddRunSpeedPowerUp.PowerUpCost = AddRunSpeedPowerUp.InitialPowerUpcost;
-            AddProjectilePowerUp.PowerUpCost = AddProjectilePowerUp.InitialPowerUpcost;
-
-            gamePropertiesModifyier.UpdateAddHealthCost(AddHealthPowerUp.PowerUpCost);
-            gamePropertiesModifyier.UpdateAddProjectileCost(AddProjectilePowerUp.PowerUpCost);
-            gamePropertiesModifyier.UpdateAddRunSpeedCost(AddRunSpeedPowerUp.PowerUpCost);
-            gamePropertiesModifyier.UpdateAddHumanCost(AddHumanPowerUp.PowerUpCost);
+            case Constants.PropertiesTypes.RunAfterSpeed:
+                runAfterSpeedPropertieCostTxt.text = "$" + propertiesManager.GetPropertieCost(propertieType).ToString();
+                break;
+            case Constants.PropertiesTypes.HumansNum:
+                humansNumPropertieCostTxt.text = "$" + propertiesManager.GetPropertieCost(propertieType).ToString();
+                break;
+            case Constants.PropertiesTypes.Health:
+                healthPropertieCostTxt.text = "$" + propertiesManager.GetPropertieCost(propertieType).ToString();
+                break;
+            case Constants.PropertiesTypes.ProjectilesNum:
+                projectilesNumPropertieCostTxt.text = "$" + propertiesManager.GetPropertieCost(propertieType).ToString();
+                break;
+            default:
+                break;
         }
-        else
-        {
-            AddHumanPowerUp.PowerUpCost = gamePropertiesModifyier.AddHumanPowerUpCost;
-            AddHealthPowerUp.PowerUpCost = gamePropertiesModifyier.AddHealthPowerUpCost;
-            AddRunSpeedPowerUp.PowerUpCost = gamePropertiesModifyier.AddRunSpeedPowerUpCost;
-            AddProjectilePowerUp.PowerUpCost = gamePropertiesModifyier.AddProjectilePowerUpCost;
-        }
-
-        UpdatePowerUpsCostsTxts();
-    }
-
-    private void UpdatePowerUpsCostsTxts()
-    {
-        AddHumanPowerUp.PowerUpCostText.text = "$" + AddHumanPowerUp.PowerUpCost.ToString();
-        AddHealthPowerUp.PowerUpCostText.text = "$" + AddHealthPowerUp.PowerUpCost.ToString();
-        AddRunSpeedPowerUp.PowerUpCostText.text = "$" + AddRunSpeedPowerUp.PowerUpCost.ToString();
-        AddProjectilePowerUp.PowerUpCostText.text = "$" + AddProjectilePowerUp.PowerUpCost.ToString();
     }
 
     public void TurnOnOffSounds()
     {
-        if (SoundButtonImg.sprite == SoundOnSprite)
+        if (soundButtonImg.sprite == soundOnSprite)
         {
             audioManager.UpdateAudioMuteState(true);
-            SoundButtonImg.sprite = SoundOffSprite;
+            soundButtonImg.sprite = soundOffSprite;
         }
         else
         {
             audioManager.UpdateAudioMuteState(false);
-            SoundButtonImg.sprite = SoundOnSprite;
+            soundButtonImg.sprite = soundOnSprite;
         }
     }
 
     public void ShowHideSettingsPanel()
     {
-        if (SettingsPanel.activeInHierarchy)
+        if (settingsPanel.activeInHierarchy)
         {
-            SettingsPanel.SetActive(false);
+            settingsPanel.SetActive(false);
         }
         else
         {
-            SettingsPanel.SetActive(true);
+            settingsPanel.SetActive(true);
         }
+    }
+
+    public void UpdatePropertiesPanelActivationState(bool isActive)
+    {
+        propertiesPanel.SetActive(isActive);
+    }
+
+    private void ResetForNewLevel()
+    {
+        runAfterSpeedPropertieCostTxt.text = "$" + propertiesManager.GetPropertieInitialCost(Constants.PropertiesTypes.RunAfterSpeed).ToString();
+        humansNumPropertieCostTxt.text = "$" + propertiesManager.GetPropertieInitialCost(Constants.PropertiesTypes.HumansNum).ToString();
+        healthPropertieCostTxt.text = "$" + propertiesManager.GetPropertieInitialCost(Constants.PropertiesTypes.Health).ToString();
+        projectilesNumPropertieCostTxt.text = "$" + propertiesManager.GetPropertieInitialCost(Constants.PropertiesTypes.ProjectilesNum).ToString();
+    }
+
+    public void UpdateLevelNameTxt(string levelName)
+    {
+        LevelNameTxt.text = levelName;
+    }
+
+    public void UpdateLoseWinPanel(bool isActive, bool haswon, bool hasWonStage)
+    {
+        if (!isActive)
+        {
+            LoseWinPanel.gameObject.SetActive(isActive);
+            return;
+        }
+
+        LoseWinPanel.gameObject.SetActive(isActive);
+
+        if (haswon)
+        {
+            if (hasWonStage)
+            {
+                LoseWinTxt.text = "Congrats!\n\nStage Was Completed";
+            }
+            else
+            {
+                LoseWinTxt.text = "Congrats!\n\nLevel Was Completed";
+            }
+        }
+        else
+        {
+            LoseWinTxt.text = "You Lose!\n\nTry Again";
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventsManager.onLevelStart -= ResetForNewLevel;
     }
 }

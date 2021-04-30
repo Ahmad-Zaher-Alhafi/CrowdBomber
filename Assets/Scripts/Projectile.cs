@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public ParticleSystem[] particleSystems;
-    public float SecondsToDeactivate;
+    [SerializeField] private ParticleSystem[] particleSystems;
+    [SerializeField] private float timeToDeactivate;
 
+    private ProjectilesManager projectilesManager;
     private ProjectileThrower projectileThrower;
     private Rigidbody rig;
-    private WaitForSeconds delay;
     private MeshRenderer meshRenderer;
     private int numOfHumansThatBeingHit;
     private GameObject humanThatBeingHit;
+
     private void Start()
     {
+        projectilesManager = FindObjectOfType<ProjectilesManager>();
         projectileThrower = FindObjectOfType<ProjectileThrower>();
         rig = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
-        delay = new WaitForSeconds(SecondsToDeactivate);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,17 +29,19 @@ public class Projectile : MonoBehaviour
             meshRenderer.enabled = false;
             rig.useGravity = false;
             rig.velocity = Vector3.zero;
+
             foreach (ParticleSystem particle in particleSystems)
             {
                 particle.Play();
             }
-            StartCoroutine(IDeactivate());
+
+            Invoke("Deactivate", timeToDeactivate);
         }
         else if (other.CompareTag(Constants.HumanTag))
         {
             Human human = other.GetComponent<Human>();
 
-            if (other.gameObject != humanThatBeingHit && !human.IsPoisened)
+            if (other.gameObject != humanThatBeingHit && !human.IsPoisoned())
             {
                 numOfHumansThatBeingHit++;
                 humanThatBeingHit = other.gameObject;
@@ -51,14 +54,13 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private IEnumerator IDeactivate()
+    private void Deactivate()
     {
-        yield return delay;
         numOfHumansThatBeingHit = 0;
-        projectileThrower.NumOfActiveProjectilesInScene--;
+        projectilesManager.UpdateActiveProjectilesNumberInScene(-1);
         EventsManager.OnProjectileDeactivate();
-        gameObject.SetActive(false);
+        projectileThrower.EnqueueProjectile(rig);
         meshRenderer.enabled = true;
-        projectileThrower.Projectiles.Enqueue(rig);
+        gameObject.SetActive(false);
     }
 }

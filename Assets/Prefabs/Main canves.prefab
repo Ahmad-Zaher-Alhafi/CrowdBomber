@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 563145890590438836}
   - component: {fileID: 8095773290382834364}
   m_Layer: 5
-  m_Name: Bottom Panel
+  m_Name: Properties Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2211,7 +2211,7 @@ GameObject:
   - component: {fileID: 563145890679111152}
   - component: {fileID: 563145890679111155}
   m_Layer: 5
-  m_Name: Increase Runing Speed Btn
+  m_Name: Increase Run After Speed Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2321,7 +2321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 563145891897394910}
         m_TargetAssemblyTypeName: MainCanves, Assembly-CSharp
-        m_MethodName: AddZombieRunningSpeed
+        m_MethodName: AddRunAfterSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2454,7 +2454,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 563145891897394910}
         m_TargetAssemblyTypeName: MainCanves, Assembly-CSharp
-        m_MethodName: IncreaseHealth
+        m_MethodName: AddHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2871,33 +2871,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fea0f2528328a742bd363e75cfab74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StagesSlider: {fileID: 853956798}
-  StagesText: {fileID: 38369583}
-  MoneyTxt: {fileID: 187294060}
-  AddHealthPowerUp:
-    PowerUpCostText: {fileID: 971301486}
-    PowerUpCost: 100
-    PowerUpCostIncreaseValue: 2
-    InitialPowerUpcost: 100
-  AddHumanPowerUp:
-    PowerUpCostText: {fileID: 1449248788}
-    PowerUpCost: 100
-    PowerUpCostIncreaseValue: 2
-    InitialPowerUpcost: 100
-  AddProjectilePowerUp:
-    PowerUpCostText: {fileID: 837674781}
-    PowerUpCost: 100
-    PowerUpCostIncreaseValue: 2
-    InitialPowerUpcost: 100
-  AddRunSpeedPowerUp:
-    PowerUpCostText: {fileID: 1235002629}
-    PowerUpCost: 100
-    PowerUpCostIncreaseValue: 2
-    InitialPowerUpcost: 100
-  SoundOnSprite: {fileID: 21300000, guid: 0b77844b505028b4ea8d12af4d7afe23, type: 3}
-  SoundOffSprite: {fileID: 21300000, guid: 72ff6089e05193f4f8f30e730abf46df, type: 3}
-  SoundButtonImg: {fileID: 1767927505253514890}
-  SettingsPanel: {fileID: 5134483433038796857}
+  stagesSlider: {fileID: 853956798}
+  stagesNumTxt: {fileID: 38369583}
+  moneyTxt: {fileID: 187294060}
+  soundOnSprite: {fileID: 21300000, guid: 0b77844b505028b4ea8d12af4d7afe23, type: 3}
+  soundOffSprite: {fileID: 21300000, guid: 72ff6089e05193f4f8f30e730abf46df, type: 3}
+  soundButtonImg: {fileID: 1767927505253514890}
+  settingsPanel: {fileID: 5134483433038796857}
+  healthPropertieCostTxt: {fileID: 971301486}
+  humansNumPropertieCostTxt: {fileID: 1449248788}
+  projectilesNumPropertieCostTxt: {fileID: 837674781}
+  runAfterSpeedPropertieCostTxt: {fileID: 1235002629}
+  propertiesPanel: {fileID: 563145890590438838}
+  LoseWinPanel: {fileID: 335148182}
+  LoseWinTxt: {fileID: 134816843}
+  LevelNameTxt: {fileID: 913557446}
+  moneyManager: {fileID: 0}
+  propertiesManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!1 &720552283619190999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,7 +2925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000038147, y: 81.7}
+  m_AnchoredPosition: {x: -0.000011444092, y: 0}
   m_SizeDelta: {x: 58.6445, y: 58.6445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &69842377762476253
@@ -3586,8 +3578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24.125244, y: 716.0928}
-  m_SizeDelta: {x: 83.2073, y: -1647.0416}
+  m_AnchoredPosition: {x: 24.125244, y: 805.3904}
+  m_SizeDelta: {x: 83.2073, y: -1825.6368}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8794402983968790403
 CanvasRenderer:
