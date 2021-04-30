@@ -149,13 +149,13 @@ public class GameManager : MonoBehaviour
     {
         if (StageNumber == MaxStagesNumInLevel)
         {
-            StartCoroutine(audioManager.SetMainMusicVolume(.5f,1.5f));
+            audioManager.OrderToSetMainMusicVolume(.5f,1.5f);
             audioManager.PlayLevelWinSound();
             mainCanves.UpdateLoseWinPanel(true, true, false);
         }
         else
         {
-            StartCoroutine(audioManager.SetMainMusicVolume(.5f, 1.5f));
+            audioManager.OrderToSetMainMusicVolume(.5f, 1.5f);
             audioManager.PlayStageWinSound();
             mainCanves.UpdateLoseWinPanel(true, true, true);
         }

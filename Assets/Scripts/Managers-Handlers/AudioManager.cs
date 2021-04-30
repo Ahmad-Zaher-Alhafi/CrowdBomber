@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public Audio PopSound;
     public Audio StageWinSound;
     public Audio LevelWinSound;
-    
+
 
 
     [System.Serializable]
@@ -51,6 +51,11 @@ public class AudioManager : MonoBehaviour
     public void PlayLevelWinSound()
     {
         SoundsAudioSource.PlayOneShot(LevelWinSound.Clip, LevelWinSound.Volume);
+    }
+
+    public void OrderToSetMainMusicVolume(float volume, float secondsToResetVolume)
+    {
+        StartCoroutine(SetMainMusicVolume(volume, secondsToResetVolume));
     }
 
     public IEnumerator SetMainMusicVolume(float volume, float secondsToResetVolume)
