@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //[HideInInspector] public bool IsStartingNextStage;
     [Header("Check it if you want to delete the saved data")]
     [SerializeField] private bool hasToDeleteSaveFiles;
     [SerializeField] private Tower tower;
@@ -110,7 +109,6 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartNextStage(bool hasWon, float timeToStartNextStage)
     {
         tower.UpdateActivationState(false);
-        //IsStartingNextStage = true;
 
         yield return new WaitForSeconds(timeToStartNextStage);
 
@@ -127,7 +125,6 @@ public class GameManager : MonoBehaviour
             dataSaver.AddDataToBeSaved(Constants.DataNames.StageNumber, StageNumber);
         }
 
-        //IsStartingNextStage = false;
         mainCanves.UpdateLoseWinPanel(false, false, false);
         EventsManager.OnStageStart(StageNumber);
         mainCanves.UpdateStageSlider(StageNumber);

@@ -4,19 +4,6 @@ using UnityEngine;
 
 public static class Constants
 {
-    //Data Playerprefs Names
-    //public static string ZombieRunningSpeedDataName = "ZombieRunningSpeed";
-    //public static string NumOfHumansDataName = "NumOfHumans";
-    //public static string HealthDataName = "Health";
-    //public static string ProjectilesNumberDataName = "ProjectilesNumber";
-    //public static string StageNumberDataName = "StageNumber";
-    //public static string MoneyValueDataName = "MoneyValue";
-    //public static string AddHealthPowerUpCostDataName = "AddHealthPowerUpCost";
-    //public static string AddHumanPowerUpCostDataName = "AddHumanPowerUpCost";
-    //public static string AddProjectilePowerUpCostDataName = "AddProjectilePowerUpCost";
-    //public static string AddRunSpeedPowerUpCostDataName = "AddRunSpeedPowerUpCost";
-    //public static string LevelNumberDataName = "LevelNumber";
-
     //Layers
     public static int GroundLayerNumber = 8;
 
@@ -55,7 +42,6 @@ public static class Constants
         StageNumber,
         MoneyAmount,
         LevelNumber,
-
 
         enumLength
     }

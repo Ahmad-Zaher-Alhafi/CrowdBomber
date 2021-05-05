@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HumanUI : MonoBehaviour
 {
@@ -112,11 +110,6 @@ public class HumanUI : MonoBehaviour
     {
         humanMoneyText.MoneyTextParent.gameObject.SetActive(false);
     }
-
-    //public void ResetForNextStage()
-    //{
-    //    gameObject.SetActive(true);
-    //}
 
     private void OnDestroy()
     {

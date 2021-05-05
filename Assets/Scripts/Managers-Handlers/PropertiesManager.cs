@@ -6,35 +6,6 @@ public class PropertiesManager : MonoBehaviour
 {
     [SerializeField] private MoneyManager moneyManager;
     [SerializeField] private DataSaver dataSaver;
-    //[SerializeField] private MainCanves mainCanves;
-
-    //how much should the health of the zombie being increased after each health adding from the player
-    //[SerializeField] private float health;
-    //[SerializeField] private float healthIncreaser;
-    //public float Health
-    //{
-    //    get => health;
-    //    private set => health = value;
-    //}
-
-    ////how much should the running speed of the zombie being increased each after speed adding
-    //[SerializeField] private float runAfterSpeed;
-    //[SerializeField] private float runAfterSpeedIncreaser;
-    //public float RunAfterSpeed
-    //{
-    //    get => runAfterSpeed;
-    //    private set => runAfterSpeed = value;
-    //}
-
-    //[SerializeField] private int projectilesNumber;
-    //[SerializeField] private int projectilesNumberIncreaser;
-    //public int ProjectilesNumber
-    //{
-    //    get => projectilesNumber;
-    //    private set => projectilesNumber = value;
-    //}
-
-
     [SerializeField] private Propertie healthPropertie;
     [SerializeField] private Propertie humansNumPropertie;
     [SerializeField] private Propertie projectilesNumPropertie;

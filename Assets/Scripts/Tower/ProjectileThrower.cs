@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ProjectileThrower : MonoBehaviour
 {
-    //this code will threw a ball with an arc path according the mouse click position
-    //To understand this code more watch this video https://www.youtube.com/watch?v=IvT8hjy6q4o
-    //Read this article for better understanding about how to use rayscast to get the mouse position in the world https://gamedevbeginner.com/how-to-convert-the-mouse-position-to-world-space-in-unity-2d-3d/#screen_to_world_3d
-    //this code is using the Kinematic Equations
+    //This code will threw a ball with an arc path according the mouse click position
+    //This code is using the Kinematic Equations To understand this code more watch this video https://www.youtube.com/watch?v=IvT8hjy6q4o
+
     [SerializeField] private CannonCanves cannonCanves;
     [SerializeField] private ProjectilesManager projectilesManager;
     [SerializeField] private InputHandler inputHandler;
@@ -20,18 +18,14 @@ public class ProjectileThrower : MonoBehaviour
     //gravity can be changed also according to what you need
     [SerializeField] private float gravity = -18;
     [SerializeField] private Transform projectilesParent;
+
     private int initialProjectilesNumber;
-
-    //[SerializeField] private GameManager gameManager;
-    //number of the projectiles that are in the scene currently
-
     private int projectilesNumber;
     public int ProjectilesNumber
     {
         get => projectilesNumber;
         private set => projectilesNumber = value;
     }
-
 
     private Queue<Rigidbody> projectiles = new Queue<Rigidbody>();
     private Vector3 targetPosition = Vector3.positiveInfinity;

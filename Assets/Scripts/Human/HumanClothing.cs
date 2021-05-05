@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Note:
+//This class had came with a premade asset from assets stor it is a mess and it's not me whoje wrote it XD
+//so do not judge me becuase of it
 public class HumanClothing : MonoBehaviour
 {
     [SerializeField] private Material poisonedMaterial;

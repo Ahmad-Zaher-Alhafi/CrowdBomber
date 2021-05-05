@@ -38,7 +38,6 @@ public class MainCanves : MonoBehaviour
 
         stagesSlider.maxValue = gameManager.MaxStagesNumInLevel;
         stagesSlider.minValue = 1;
-        //UpdateStageSlider(gameManager.StageNumber);
 
         UpdateProperiteCostTxt(Constants.PropertiesTypes.RunAfterSpeed);
         UpdateProperiteCostTxt(Constants.PropertiesTypes.HumansNum);

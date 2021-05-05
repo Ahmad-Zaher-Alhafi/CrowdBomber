@@ -51,12 +51,6 @@ public class HumanHealth : MonoBehaviour
         if (Health <= 0)
         {
             IsDead = true;
-            //agent.enabled = false;
-            //rig.useGravity = false;
-            //sensor.gameObject.SetActive(false);
-            //Animator.speed = 1;
-            //Animator.Play(Constants.WalkduckedAnimationClipName);
-            
             human.Die();
         }
     }

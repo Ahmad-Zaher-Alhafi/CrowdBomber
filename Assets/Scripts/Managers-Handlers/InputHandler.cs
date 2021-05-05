@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
+    //Read this article for better understanding about how to use rayscast to get the mouse position in the world https://gamedevbeginner.com/how-to-convert-the-mouse-position-to-world-space-in-unity-2d-3d/#screen_to_world_3d
+
     [SerializeField] private MainCanves mainCanves;
     [SerializeField] private TargetSign targetSign;
     [SerializeField] private Tower tower;

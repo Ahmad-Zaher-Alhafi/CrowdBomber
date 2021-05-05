@@ -17,9 +17,7 @@ public class BordersManger : MonoBehaviour
     /// <summary>
     /// To actiavate or deactivate the borders according to the current stage
     /// </summary>
-    /// <param name="stage1">true to activate first stage borders else false</param>
-    /// <param name="stage2">true to activate second stage borders else false</param>
-    /// <param name="stage3">true to activate third stage borders else false</param>
+    /// <param name="stageNumber">current stage number</param>
     public void SetBordersActivation(int stageNumber)
     {
         foreach (Border border in borders)

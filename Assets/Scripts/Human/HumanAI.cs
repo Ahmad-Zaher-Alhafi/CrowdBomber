@@ -266,8 +266,6 @@ public class HumanAI : MonoBehaviour
                 }
             }
         }
-
-        //print(isGoingRight + " isGoingRight " + isGoingLeft + " isGoingLeft " + isGoingDown + " isGoingDown " + isGoingUp + " isGoingUp ");
     }
 
     private bool CheckIfOnTheNav(Vector3 pos)//to check if this position is on the Navmesh
@@ -345,8 +343,6 @@ public class HumanAI : MonoBehaviour
             isGoingLeft = false;
             runTo = transform.position + Vector3.forward * navSampleDistance;
         }
-
-        //print("left " + leftScore + " right " + rightScore + " up " + upScore + " down " + downScore);
     }
 
     private Vector3 GetRandomPatrolPoint()
